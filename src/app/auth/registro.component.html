@@ -1,0 +1,51 @@
+<div class="text-center" *ngIf="isLogged;else loggedOut">
+  <h2>Ya has iniciado session</h2>
+</div>
+
+<ng-template #loggedOut>
+  <div class="d-flex justify-content-center align-items-center login-style">
+    <div class="card">
+      <div class="card-header">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/login">Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" h routerLink="/registro">Registar</a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="card-body">
+        <form #f="ngForm" (ngSubmit)="onRegister()" novalidate>
+          <div class="form-group">
+            <label for="nombre">Name</label>
+            <input type="text" name="nombre" required id="nombre" [(ngModel)]="name" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" required id="username" [(ngModel)]="username" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="username">Email</label>
+            <input type="email" name="username" required id="username" [(ngModel)]="email" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="contraseña">Contraseña</label>
+            <input type="password" name="nombreUsuario" required id="contraseña" [(ngModel)]="password"
+              class="form-control">
+          </div>
+
+          <div class="form-group mt-3 d-grid">
+            <button class="btn btn-outline-success " [disabled]="!f.valid">Registar</button>
+          </div>
+
+
+        </form>
+        <div *ngIf="f.submitted && isRegisterFail" class="alert alert-danger mt-3">
+          {{errMessage}}
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

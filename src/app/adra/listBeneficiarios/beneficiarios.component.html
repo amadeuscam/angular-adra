@@ -1,0 +1,72 @@
+<div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+  <div class="col" *ngFor="let person of beneficiarios_list; let i = index">
+    <div class="card h-100 shadow-sm" style="position: relative;">
+        <i class="fab fa-accessible-icon fs-3" *ngIf="person['discapacidad']" style="position: absolute;top:10px;right: 20px;border-radius: 100%;padding: 6px; background-color: #8defd8;color: black;"></i>
+        <i class="fas fa-baby fs-3" *ngIf="person['tienebaby']" style="position: absolute;top:10px;left: 20px;border-radius: 100%;padding: 6px; background-color: #8defd8;color: black;"></i>
+       
+
+      <div class="card-body">
+        <div class="clearfix mb-3">
+        </div>
+        <div class="mb-3 d-flex flex-column align-items-center ">
+          <span>Numero adra</span>
+          <h2 class="text-uppercase text-center  fs-2">{{person['numeroadra']}}</h2>
+
+        </div>
+        <div class="my-2 text-center d-flex flex-column text-center ">
+          <span>Nombre</span>
+          <h1 class="text-capitalize">{{person['nombreapellido']}}</h1>
+
+        </div>
+
+
+        <div class="box">
+          <div>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a [routerLink]="['/detail-beneficiario/' + person['id']]" ><i class="fas fa-sign-in-alt fs-3"></i></a>
+              </li>
+
+              <li class="list-inline-item" *ngIf="isAdmin">
+                <a href="">
+                  <i class="fas fa-edit fs-3"></i>
+                </a>
+              </li>
+
+              <li class="list-inline-item" *ngIf="isAdmin">
+                <a href="">
+                  <i class="fas fa-times-circle fs-3"></i>
+                </a>
+              </li>
+
+             
+
+            </ul>
+
+          </div>
+        </div>
+        <div class="mb-3">
+
+          <h2 class="  text-center  ">
+            <span *ngIf="person['alimentos'].length > 0;else noalimentos" class="d-flex flex-column align-items-center">
+              <span class="role">Entregado</span>
+              {{ person['alimentos'][person['alimentos'].length-1]["createdDate"] | dateAgo}}</span>
+            <ng-template #noalimentos>
+              <div class="d-flex flex-column align-items-center">
+                <span class="role">Entregado</span>
+                <span>Sin entrega</span>
+              </div>
+
+            </ng-template>
+          </h2>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+ 
