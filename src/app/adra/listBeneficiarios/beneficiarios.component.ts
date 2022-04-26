@@ -15,19 +15,11 @@ export class BeneficiariosComponent implements OnInit {
   ) { }
 
   beneficiarios_list: any[] = []
-  roles: string[] | undefined;
   isAdmin = false
 
   ngOnInit(): void {
-    this.roles = this.tokenService.getAuthorities();
 
-    this.roles.forEach(rol => {
-      if (rol === "ROLE_ADMIN") {
-        this.isAdmin = true;
-      }
-    })
-
-
+    this.isAdmin = this.tokenService.getIsAdmin();
     this.beneficiarios_list = []
     this.adraService.getAllBeneficarios().subscribe(
       (data: any) => {
