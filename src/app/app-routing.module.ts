@@ -42,7 +42,7 @@ const routes: Routes = [
         component: BeneficiarioComponent,
         canActivate: [guard],
         data: {
-          expectedRol: ["admin", "user"]
+          expectedRol: ["admin"]
         }
       },
     ]

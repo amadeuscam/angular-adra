@@ -12,13 +12,12 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  isLogged = false;
+   
   isLoginFail = false;
   loginUsuario!: LoginUsuario;
 
   username: string | undefined;
   password: string | undefined;
-  roles: string[] = []
   errMessage: string | undefined
 
   constructor(
@@ -29,11 +28,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-      this.isLoginFail = false;
-      this.roles = this.tokenService.getAuthorities()
-    }
+    // if (this.tokenService.getToken()) {
+    //   this.isLogged = true;
+    //   this.isLoginFail = false;
+   
+    // }
 
 
   }
@@ -44,18 +43,13 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginUsuario).subscribe(
       data => {
         console.log(data);
-
-        this.isLogged = true;
         this.isLoginFail = false;
-
         this.tokenService.setToken(data.token);
-        this.tokenService.setUserName(data.userName)
-        this.tokenService.setAuthorities(data.authorities);
-        this.roles = data.authorities
+        // this.isLogged = this.tokenService.isLogged();
         this.router.navigate(["/"]);
       },
       err => {
-        this.isLogged = false;
+        // this.isLogged = false;
         this.isLoginFail = true;
         this.errMessage = err.error.message
         console.log(err);
