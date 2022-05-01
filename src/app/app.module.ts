@@ -17,6 +17,11 @@ import es from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { BeneficiarioComponent } from './adra/detallebeneficiario/beneficiario.component';
+import { SendMailComponent } from './changepassword/send-mail/send-mail.component';
+import { ChangePasswordComponent } from './changepassword/change-password.component';
+import { AddBeneficiariosComponent } from './adra/add-beneficiarios/add-beneficiarios.component';
+import { AddAlimentosComponent } from './adra/add-alimentos/add-alimentos.component';
+
 
 registerLocaleData(es);
 
@@ -31,6 +36,10 @@ registerLocaleData(es);
     BeneficiariosComponent,
     DateAgoPipe,
     BeneficiarioComponent,
+    SendMailComponent,
+    ChangePasswordComponent,
+    AddBeneficiariosComponent,
+    AddAlimentosComponent,
   
 
   ],

@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.loginUsuario).subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         this.isLoginFail = false;
         this.tokenService.setToken(data.token);
         // this.isLogged = this.tokenService.isLogged();

@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center align-items-center login-style">
+  <p class="credit-photo"><a target="_blank" href="https://unsplash.com/photos/9qYKMbBCFjc">Credit photo</a></p>
+
+  <div class="card" style="background-color: #ffffff40;">
+    <div class="card-header">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/login">Iniciar Sesión</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" h routerLink="/registro">Registar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" h routerLink="/sendemail">Olvidé mi contraseña</a>
+        </li>
+
+      </ul>
+    </div>
+    <div class="card-body">
+      <form #f="ngForm" action="" (ngSubmit)="onSendEmail()" novalidate>
+        <div class="form-group">
+          <label for="mailTo" class="text-center p-3">Te enviaremos un correo para recuperar la contraseña</label>
+          <input type="text" name="mailTo" placeholder="Nombre de usuario o email" required id="mailTo"
+            [(ngModel)]="mailTo" class="form-control">
+        </div>
+
+
+        <div class="form-group mt-3 d-grid">
+          <button class="btn btn-success btn-block" [disabled]="!f.valid">Enviar Correo</button>
+        </div>
+
+
+      </form>
+      <div *ngIf="f.submitted && isLoginFail" class="alert alert-danger mt-3">
+        {{errMessage}}
+      </div>
+      <div *ngIf="emailok" class="alert alert-success mt-3">
+        Te hemo enviado un correo
+      </div>
+    </div>
+  </div>
+</div>

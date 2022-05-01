@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   benUrl: "http://localhost:8080/api/v1/",
-  authUrl: "http://localhost:8080/api/v1/auth/"
+  authUrl: "http://localhost:8080/api/v1/auth/",
+  changePasswordUrl: "http://localhost:8080/api/v1/email/",
 };
 
 /*
