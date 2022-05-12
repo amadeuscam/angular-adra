@@ -1,63 +1,75 @@
-<div class="container px-4 py-5" id="featured-3">
+<div class="container-fluid " id="featured-3">
   <h2 class="pb-2 border-bottom">Añadir beneficiario</h2>
-  <form [formGroup]="myForm" (onSubmit)="addBeneficiario()">
+  <form [formGroup]="myForm" (ngSubmit)="addBeneficiario()" class="needs-validation">
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 
       <div class="form-floating  col-md-4">
-        <input type="text" class="form-control" id="floatingInput">
+        <input type="text" class="form-control" formControlName="nombre_beneficiario" id="floatingInput"
+               [ngClass]="{ 'is-invalid':  myForm.get('nombre_beneficiario').errors,'is-valid': !myForm.get('nombre_beneficiario').errors}">
         <label for="floatingInput">Nombre del beneficiario</label>
+        <div *ngIf="myForm.get('nombre_beneficiario').errors" class="invalid-feedback">
+          <div *ngIf="myForm.get('nombre_beneficiario').hasError('required')">El nombre es obligatorio</div>
+        </div>
+
+
       </div>
 
       <div class="form-floating col-md-4">
-        <input type="text" class="form-control" id="Garbanzos">
-        <label for="Garbanzos">Dni</label>
+        <input type="text" class="form-control" id="Dni" formControlName="dni">
+        <label for="Dni">Dni</label>
+
       </div>
 
       <div class="form-floating  col-md-4">
-        <input type="text" class="form-control" id="Atún">
-        <label for="Atún">Otros documentos</label>
+        <input type="text" class="form-control" id="documentos" formControlName="otros_documentos">
+        <label for="documentos">Otros documentos</label>
       </div>
 
       <div class="form-floating col-md-4">
-        <input type="datetime-local" class="form-control" id="Espagueti">
-        <label for="Espagueti">Fecha nacimiento*</label>
-      </div>
-      
-      <div class="form-floating col">
-        <input type="number" class="form-control" id="Espagueti">
-        <label for="Espagueti">Numero adra</label>
+        <input type="date" class="form-control" id="nacimiento" formControlName="fecha_nacimiento"
+               [ngClass]="{ 'is-invalid':  myForm.get('fecha_nacimiento').errors,'is-fecha_nacimiento': !myForm.get('dni').errors}">
+        <label for="nacimiento">Fecha nacimiento</label>
       </div>
 
       <div class="form-floating col">
-        <input type="text" class="form-control" id="Espagueti">
-        <label for="Espagueti">Nacionalidad</label>
+        <input type="number" class="form-control" id="Numero" formControlName="numar_adra"
+               [ngClass]="{ 'is-invalid':  myForm.get('numar_adra').errors,'is-valid': !myForm.get('numar_adra').errors}">
+        <label for="Numero">Numero adra</label>
       </div>
 
       <div class="form-floating col">
-        <input type="text" class="form-control" id="Espagueti">
-        <label for="Espagueti">Domicilio</label>
+        <input type="text" class="form-control" id="Nacionalidad" formControlName="nacionalidad"
+               [ngClass]="{ 'is-invalid':  myForm.get('nacionalidad').errors,'is-valid': !myForm.get('nacionalidad').errors}">
+        <label for="Nacionalidad">Nacionalidad</label>
       </div>
 
       <div class="form-floating col">
-        <input type="text" class="form-control" id="Espagueti">
-        <label for="Espagueti">Mensaje</label>
+        <input type="text" class="form-control" id="Domicilio" formControlName="domicilio"
+               [ngClass]="{ 'is-invalid':  myForm.get('domicilio').errors,'is-valid': !myForm.get('domicilio').errors}">
+        <label for="Domicilio">Domicilio</label>
       </div>
 
       <div class="form-floating col">
-        <input type="text" class="form-control" id="Espagueti">
-        <label for="Espagueti">Ciudad</label>
+        <input type="text" class="form-control" id="Mensaje" formControlName="mensaje">
+        <label for="Mensaje">Mensaje</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="text" class="form-control" id="Ciudad" formControlName="ciudad"
+               [ngClass]="{ 'is-invalid':  myForm.get('ciudad').errors,'is-valid': !myForm.get('ciudad').errors}">
+        <label for="Ciudad">Ciudad</label>
       </div>
 
       <div class="form-floating col-md-3">
-        <input type="number" class="form-control" id="Espagueti">
-        <label for="Espagueti">Telefono</label>
+        <input type="number" class="form-control" id="Telefono" formControlName="telefono"
+               [ngClass]="{ 'is-invalid':  myForm.get('telefono').errors,'is-valid': !myForm.get('telefono').errors}">
+        <label for="Telefono">Telefono</label>
       </div>
-
-     
 
 
       <div class="form-floating col-md-3">
-        <select class="form-select form-select mb-3 form-control" id="sexo">
+        <select class="form-select form-select mb-3 form-control" id="sexo" formControlName="sexo"
+                [ngClass]="{ 'is-invalid':  myForm.get('sexo').errors,'is-valid': !myForm.get('sexo').errors}">
           <option value="m" selected>Mujer</option>
           <option value="h">Hombre</option>
         </select>
@@ -66,80 +78,83 @@
 
 
       <div class="form-floating col-md-3">
-        <select class="form-select form-select mb-3 form-control" id="sexo">
+        <select class="form-select form-select mb-3 form-control" id="Domingo" formControlName="categoria"
+                [ngClass]="{ 'is-invalid':  myForm.get('categoria').errors,'is-valid': !myForm.get('categoria').errors}">
           <option value="2" selected>2</option>
           <option value="4">4</option>
         </select>
-        <label for="sexo">Domingo</label>
+        <label for="Domingo">Domingo</label>
       </div>
 
       <div class="form-floating col-md-3">
-        <input type="email" class="form-control" id="Espagueti">
-        <label for="Espagueti">Email beneficiario</label>
+        <input type="email" class="form-control" id="Email" formControlName="email">
+        <label for="Email">Email beneficiario</label>
       </div>
 
-    
-      <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="empadronamiento">
-        <label class="form-check-label"  for="empadronamiento">Tiene papeles</label>
-      </div>
 
       <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="empadronamiento">
-        <label class="form-check-label"  for="empadronamiento">Discapacidad</label>
+        <input type="checkbox" class="form-check-input" id="papeles" formControlName="papeles">
+        <label class="form-check-label" for="papeles">Tiene papeles</label>
       </div>
 
       <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="empadronamiento">
-        <label class="form-check-label"  for="empadronamiento">Covid entregas</label>
+        <input type="checkbox" class="form-check-input" id="Discapacidad" formControlName="discapacidad">
+        <label class="form-check-label" for="Discapacidad">Discapacidad</label>
       </div>
-      
-      
+
       <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="empadronamiento">
-        <label class="form-check-label"  for="empadronamiento">Certificado de empadronamiento actualizado con fecha de menos de tres meses</label>
+        <input type="checkbox" class="form-check-input" id="entregas" formControlName="covid">
+        <label class="form-check-label" for="entregas">Covid entregas</label>
       </div>
-      
+
+
       <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="Libro">
+        <input type="checkbox" class="form-check-input" id="empadronamiento" formControlName="empadronamiento">
+        <label class="form-check-label" for="empadronamiento">Certificado de empadronamiento actualizado con fecha de
+          menos de tres meses</label>
+      </div>
+
+      <div class="form-check col">
+        <input type="checkbox" class="form-check-input" id="Libro" formControlName="fotocopia_libro_familia">
         <label for="Libro">Fotocopia del Libro de Familia</label>
       </div>
 
       <div class="form-check  col">
-        <input type="checkbox" class="form-check-input" id="pasaporte">
+        <input type="checkbox" class="form-check-input" id="pasaporte" formControlName="fotocopia_documentacion">
         <label for="pasaporte">Fotocopia del DNI/NIE o pasaporte de todos los miembros del núcleo familiar</label>
       </div>
 
       <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="prestación">
+        <input type="checkbox" class="form-check-input" id="prestación" formControlName="fotocopia_prestacion">
         <label for="prestación">Fotocopia de la documentación que acredite de prestación, pensión, paro, etc</label>
       </div>
 
       <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="nómina">
+        <input type="checkbox" class="form-check-input" id="nómina" formControlName="fotocopia_nomina">
         <label for="nómina">Fotocopia de la nómina en caso de trabajar.</label>
       </div>
 
       <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="certificado">
-        <label for="certificado">En caso de no tener ingresos: certificado negativo de rentas, de la Agencia Tributaria.</label>
+        <input type="checkbox" class="form-check-input" id="certificado"
+               formControlName="fotocopia_certificado_negativo">
+        <label for="certificado">En caso de no tener ingresos: certificado negativo de rentas, de la Agencia
+          Tributaria.</label>
       </div>
 
       <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="hipoteca">
-        <label for="hipoteca">Ultimo recibo alquiler o hipoteca de vivienda familiar en la que están empadronados</label>
+        <input type="checkbox" class="form-check-input" id="hipoteca" formControlName="fotocopia_recibo_propiedad">
+        <label for="hipoteca">Ultimo recibo alquiler o hipoteca de vivienda familiar en la que están
+          empadronados</label>
       </div>
-      
+
       <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="gastos">
+        <input type="checkbox" class="form-check-input" id="gastos" formControlName="fotocopia_recibo_gastos">
         <label for="gastos">Recibo de gastos básicos: luz, agua, gas, calefacción, comunidad y comedor escolar.</label>
-      </div> 
-      
-      
-      
+      </div>
 
-
-      
+      <div class="col-lg-12 d-grid">
+        <button type="submit" class="btn btn-success  btn-lg">Enviar</button>
+      </div>
 
     </div>
   </form>

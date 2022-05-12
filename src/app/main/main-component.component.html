@@ -1,4 +1,168 @@
+<!--<div class="container-fluid">-->
+<!--  <div class="row">-->
+<!--    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">-->
+<!--      <div class=" pt-5 d-flex flex-column flex-shrink-0 p-3 " style="height: 100%">-->
+<!--        <ul class="nav nav-pills flex-column mb-auto">-->
+<!--          <li class="nav-item">-->
+<!--            <a routerLink="/" class="nav-link text-white" aria-current="page">-->
+<!--              <i class="bi bi-x-diamond"></i>-->
+<!--              Dashboard-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a routerLink="/add-beneficiario" class="nav-link text-white active">-->
+<!--              <i class="bi bi-person-plus-fill"></i>-->
+<!--              Añadir Beneficiarios-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="#" class="nav-link text-white">-->
+<!--              <svg class="bi me-2" width="16" height="16">-->
+<!--                <use xlink:href="#table"/>-->
+<!--              </svg>-->
+<!--              Orders-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="#" class="nav-link text-white">-->
+<!--              <svg class="bi me-2" width="16" height="16">-->
+<!--                <use xlink:href="#grid"/>-->
+<!--              </svg>-->
+<!--              Products-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="#" class="nav-link text-white">-->
+<!--              <svg class="bi me-2" width="16" height="16">-->
+<!--                <use xlink:href="#people-circle"/>-->
+<!--              </svg>-->
+<!--              Customers-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--        <hr style="color: white">-->
+<!--        <div class="dropdown">-->
+<!--          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"-->
+<!--             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">-->
+<!--            <strong>{{username}}</strong>-->
+<!--          </a>-->
+<!--          <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">-->
+<!--&lt;!&ndash;            <li><a class="dropdown-item" href="#">New project...</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li><a class="dropdown-item" href="#">Settings</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li><a class="dropdown-item" href="#">Profile</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li>&ndash;&gt;-->
+<!--&lt;!&ndash;              <hr class="dropdown-divider">&ndash;&gt;-->
+<!--&lt;!&ndash;            </li>&ndash;&gt;-->
+<!--            <li><a class="dropdown-item" (click)="onLogout()">Sign out</a></li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </nav>-->
+
+
+<!--    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-top: 4vh;">-->
+<!--      -->
+
+<!--    </main>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!-- top navigation bar -->
 <app-menu></app-menu>
-<div class="container">
-    <router-outlet></router-outlet>
+<!-- top navigation bar -->
+<!-- offcanvas -->
+<div
+  class="offcanvas offcanvas-start sidebar-nav bg-dark"
+  tabindex="-1"
+  id="sidebar"
+>
+  <div class="offcanvas-body p-0">
+    <nav class="navbar-dark">
+      <ul class="navbar-nav">
+
+        <li>
+          <a routerLink="/" class="nav-link px-3 active">
+            <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li >
+          <hr class="dropdown-divider bg-light"/>
+        </li>
+        <li>
+          <a routerLink="/add-beneficiario" class="nav-link px-3 active">
+            <span class="me-2"><i class="bi bi-person-plus-fill"></i></span>
+            <span>Añadir beneficiario</span>
+          </a>
+        </li>
+        <li >
+          <hr class="dropdown-divider bg-light"/>
+        </li>
+        <li>
+          <div class="text-muted small fw-bold text-uppercase px-3 mb-3">
+            Interface
+          </div>
+        </li>
+        <li>
+          <a
+            class="nav-link px-3 sidebar-link"
+            data-bs-toggle="collapse"
+            href="#layouts"
+          >
+            <span class="me-2"><i class="bi bi-layout-split"></i></span>
+            <span>Layouts</span>
+            <span class="ms-auto">
+                  <span class="right-icon">
+                    <i class="bi bi-chevron-down"></i>
+                  </span>
+                </span>
+          </a>
+          <div class="collapse" id="layouts">
+            <ul class="navbar-nav ps-3">
+              <li>
+                <a href="#" class="nav-link px-3">
+                      <span class="me-2"
+                      ><i class="bi bi-speedometer2"></i
+                      ></span>
+                  <span>Dashboard</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#" class="nav-link px-3">
+            <span class="me-2"><i class="bi bi-book-fill"></i></span>
+            <span>Pages</span>
+          </a>
+        </li>
+
+        <li>
+          <div class="text-muted small fw-bold text-uppercase px-3 mb-3">
+            Addons
+          </div>
+        </li>
+        <li>
+          <a href="#" class="nav-link px-3">
+            <span class="me-2"><i class="bi bi-graph-up"></i></span>
+            <span>Charts</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link px-3">
+            <span class="me-2"><i class="bi bi-table"></i></span>
+            <span>Tables</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </div>
+<!-- offcanvas -->
+<main class="mt-5 pt-3">
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+

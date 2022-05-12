@@ -1,71 +1,114 @@
-<div class="container px-4 py-5" id="featured-3">
-    <h2 class="pb-2 border-bottom">Añadir beneficiario</h2>
-    <form [formGroup]="myForm" (onSubmit)="addAlimentos()">
-      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-  
-        <div class="form-floating  col">
-          <input type="number" class="form-control" id="floatingInput">
-          <label for="floatingInput">Arroz Blanco</label>
-        </div>
-  
-        <div class="form-floating col">
-          <input type="number" class="form-control" id="Garbanzos">
-          <label for="Garbanzos">Garbanzos Cocidos</label>
-        </div>
-  
-        <div class="form-floating  col">
-          <input type="number" class="form-control" id="Atún">
-          <label for="Atún">Conserva De Atún</label>
-        </div>
-  
-        <div class="form-floating col">
-          <input type="number" class="form-control" id="Espagueti">
-          <label for="Espagueti">Pasta Alimenticia Tipo Espagueti</label>
-        </div>
-        
-        <div class="form-floating col">
-          <input type="number" class="form-control" id="Espagueti">
-          <label for="Espagueti">Tomate Frito En Conserva</label>
-        </div>
-  
-        <div class="form-floating col">
-          <input type="number" class="form-control" id="Espagueti">
-          <label for="Espagueti">Galletas</label>
-        </div>
-  
-        <div class="form-floating col">
-          <input type="number" class="form-control" id="Espagueti">
-          <label for="Espagueti">Macedonia De Verduras En Conserva</label>
-        </div>
-  
-        <div class="form-floating col">
-          <input type="number" class="form-control" id="Espagueti">
-          <label for="Espagueti">Cacao Soluble</label>
-        </div>
-  
-        <div class="form-floating col">
-          <input type="number" class="form-control" id="Espagueti">
-          <label for="Espagueti">Tarritos Infantiles Con Pollo</label>
-        </div>
-  
-        <div class="form-floating col">
-          <input type="number" class="form-control" id="Espagueti">
-          <label for="Espagueti">Tarritos Infantiles De Fruta</label>
-        </div>
-  
-        <div class="form-floating col">
-          <input type="number" class="form-control" id="Espagueti">
-          <label for="Espagueti">Leche Entera Uht</label>
-        </div>
-        
-        <div class="form-floating col">
-          <input type="number" class="form-control" id="Espagueti">
-          <label for="Espagueti">Aceite De Oliva</label>
-        </div>
-  
-        
-  
+<div class="container-fluid  ">
+  <h2 class="pb-2 border-bottom">Añadir Alimentos</h2>
+  <form [formGroup]="myForm">
+    <div class="row g-4   row-cols-1 row-cols-lg-3">
+
+      <div class="form-floating  col">
+        <input type="number" class="form-control" formControlName="arroz_blanco" id="arroz_blanco"
+               [ngClass]="{ 'is-invalid':  myForm.get('arroz_blanco').errors,'is-valid': !myForm.get('arroz_blanco').errors}">
+        <label for="arroz_blanco">Arroz Blanco</label>
       </div>
-    </form>
-  </div>
-  
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Alubia_Cocida" formControlName="alubia_cocida"
+               [ngClass]="{ 'is-invalid':  myForm.get('alubia_cocida').errors,'is-valid': !myForm.get('alubia_cocida').errors}">
+        <label for="Alubia_Cocida">Alubia Cocida</label>
+      </div>
+
+      <div class="form-floating  col">
+        <input type="number" class="form-control" id="Atún" formControlName="conserva_atun"
+               [ngClass]="{ 'is-invalid':  myForm.get('conserva_atun').errors,'is-valid': !myForm.get('conserva_atun').errors}">
+        <label for="Atún">Conserva De Atún</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Macarron" formControlName="pasta_macarron"
+               [ngClass]="{ 'is-invalid':  myForm.get('pasta_macarron').errors,'is-valid': !myForm.get('pasta_macarron').errors}">
+        <label for="Macarron">Pasta Alimenticia Tipo Macarron</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Conserva" formControlName="conserva_tomate_frito"
+               [ngClass]="{ 'is-invalid':  myForm.get('conserva_tomate_frito').errors,'is-valid': !myForm.get('conserva_tomate_frito').errors}">
+        <label for="Conserva">Tomate Frito En Conserva</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Galletas" formControlName="galletas"
+               [ngClass]="{ 'is-invalid':  myForm.get('galletas').errors,'is-valid': !myForm.get('galletas').errors}">
+        <label for="Galletas">Galletas</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Macedonia" formControlName="macedonia_verduras"
+               [ngClass]="{ 'is-invalid':  myForm.get('macedonia_verduras').errors,'is-valid': !myForm.get('macedonia_verduras').errors}">
+        <label for="Macedonia">Macedonia De Verduras En Conserva</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Fruta" formControlName="fruta_conserva"
+               [ngClass]="{ 'is-invalid':  myForm.get('fruta_conserva').errors,'is-valid': !myForm.get('fruta_conserva').errors}">
+        <label for="Fruta">Fruta En Conserva</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Cacao" formControlName="cacao"
+               [ngClass]="{ 'is-invalid':  myForm.get('cacao').errors,'is-valid': !myForm.get('cacao').errors}">
+        <label for="Cacao">Cacao Soluble</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Tarritos_Pollo" formControlName="tarritos_pollo"
+               [ngClass]="{ 'is-invalid':  myForm.get('tarritos_pollo').errors,'is-valid': !myForm.get('tarritos_pollo').errors}">
+        <label for="Tarritos_Pollo">Tarritos Infantiles Con Pollo</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Tarritos_Fruta" formControlName="tarritos_fruta"
+               [ngClass]="{ 'is-invalid':  myForm.get('tarritos_fruta').errors,'is-valid': !myForm.get('tarritos_fruta').errors}">
+        <label for="Tarritos_Fruta">Tarritos Infantiles De Fruta</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Leche" formControlName="leche"
+               [ngClass]="{ 'is-invalid':  myForm.get('leche').errors,'is-valid': !myForm.get('leche').errors}">
+        <label for="Leche">Leche Entera Uht</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Aceite" formControlName="aceite"
+               [ngClass]="{ 'is-invalid':  myForm.get('aceite').errors,'is-valid': !myForm.get('aceite').errors}">
+        <label for="Aceite">Aceite De Oliva</label>
+      </div>
+
+      <div class="col ">
+        <div class="signature-container">
+          <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
+                         (onEndEvent)="drawComplete()"></signature-pad>
+        </div>
+
+        <div class="buttons">
+          <button (click)="clearSignature()" class="btn btn-dark">Limpiar la firma</button>
+          <!--        <button (click)="savePad()">Save signature</button>-->
+        </div>
+      </div>
+
+      <div class="col-lg-12  pb-3 pb-xl-0">
+        <div class="row">
+          <div class="col d-grid">
+            <button class="btn btn-dark  btn-lg" [routerLink]="['/detail-beneficiario/' + ben_id]">Volver</button>
+          </div>
+          <div class="col d-grid">
+            <button class="btn btn-success  btn-lg" (click)="addAlimentos()">Enviar</button>
+          </div>
+        </div>
+
+      </div>
+      <!--      <div class="signature-image" *ngIf="signatureImg">-->
+      <!--        <img src='{{ signatureImg }}'/>-->
+      <!--      </div>-->
+
+
+    </div>
+  </form>
+</div>

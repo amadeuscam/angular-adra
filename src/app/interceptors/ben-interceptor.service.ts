@@ -46,9 +46,12 @@ export class BenInterceptorService implements HttpInterceptor {
           return next.handle(intReq);
         }))
 
-      } else {
+      }
+
+
+      else {
         console.log("session caducada");
-        this.tokenService.logOut();
+        // this.tokenService.logOut();
         return throwError(err)
       }
 

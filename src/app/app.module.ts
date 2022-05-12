@@ -21,8 +21,9 @@ import { SendMailComponent } from './changepassword/send-mail/send-mail.componen
 import { ChangePasswordComponent } from './changepassword/change-password.component';
 import { AddBeneficiariosComponent } from './adra/add-beneficiarios/add-beneficiarios.component';
 import { AddAlimentosComponent } from './adra/add-alimentos/add-alimentos.component';
-
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SignaturePadModule } from 'angular2-signaturepad';
 registerLocaleData(es);
 
 @NgModule({
@@ -40,7 +41,7 @@ registerLocaleData(es);
     ChangePasswordComponent,
     AddBeneficiariosComponent,
     AddAlimentosComponent,
-  
+
 
   ],
   imports: [
@@ -48,7 +49,10 @@ registerLocaleData(es);
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    SignaturePadModule
   ],
   providers: [
     interceptorProvider,

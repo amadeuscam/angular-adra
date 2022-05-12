@@ -10,6 +10,7 @@ import { SendMailComponent } from './changepassword/send-mail/send-mail.componen
 import { BenGuardService as guard } from './guards/ben-guard.service';
 import { IndexComponent } from './index/index.component';
 import { MainComponentComponent } from './main/main-component.component';
+import {AddAlimentosComponent} from "./adra/add-alimentos/add-alimentos.component";
 
 
 const routes: Routes = [
@@ -17,11 +18,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-  }, 
+  },
   {
     path: 'sendemail',
     component: SendMailComponent
-  }, 
+  },
   {
     path: 'change-password/:tokenPassword',
     component: ChangePasswordComponent
@@ -34,7 +35,7 @@ const routes: Routes = [
     path: 'beneficiarios',
     component: BeneficiariosComponent
   },
-  
+
 
   {
     path: '', component: MainComponentComponent ,
@@ -54,10 +55,18 @@ const routes: Routes = [
         data: {
           expectedRol: ["admin"]
         }
-      }, 
+      },
       {
         path: 'add-beneficiario',
         component: AddBeneficiariosComponent,
+        canActivate: [guard],
+        data: {
+          expectedRol: ["admin"]
+        }
+      },
+      {
+        path: 'add-alimentos/:ben_id',
+        component: AddAlimentosComponent,
         canActivate: [guard],
         data: {
           expectedRol: ["admin"]

@@ -16,7 +16,7 @@ export class TokenService {
   ) { }
 
   public setToken(token: string): void {
-    console.log("set", token);
+    // console.log("set", token);
 
     window.localStorage.removeItem(TOKEN_KEY);
     window.localStorage.setItem(TOKEN_KEY, token);
@@ -55,7 +55,7 @@ export class TokenService {
 
     const values: any = this.decodedToken()
     const username = values.sub;
-    console.log(username);
+    // console.log(username);
 
     return username;
   }
