@@ -1,8 +1,8 @@
-<div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-  <div class="col" *ngFor="let person of beneficiarios_list; let i = index">
-    <div class="card h-100 shadow-sm" style="position: relative;">
-        <i class="fab fa-accessible-icon fs-3" *ngIf="person['discapacidad']" style="position: absolute;top:10px;right: 20px;border-radius: 100%;padding: 6px; background-color: #8defd8;color: black;"></i>
-        <i class="fas fa-baby fs-3" *ngIf="person['tienebaby']" style="position: absolute;top:10px;left: 20px;border-radius: 100%;padding: 6px; background-color: #8defd8;color: black;"></i>
+<div class="row ">
+  <div class="col-12 col-md-6 col-lg-3 pb-3" *ngFor="let person of beneficiarios_list; let i = index">
+    <div class="card   shadow-sm" style="position: relative;">
+        <i class="fab fa-accessible-icon fs-3" *ngIf="person['discapacidad']" style="position: absolute;top:10px;right: 20px;border-radius: 100%;padding: .7rem; font-size:3em ; background-color: #8defd8;color: black;"></i>
+        <i class="fas fa-baby fs-3" *ngIf="person['tienebaby']" style="position: absolute;top:10px;left: 20px;border-radius: 100%;padding: .7rem; font-size: 3em; background-color: #8defd8;color: black;"></i>
 
 
       <div class="card-body">
@@ -10,7 +10,7 @@
         </div>
         <div class="mb-3 d-flex flex-column align-items-center ">
           <span>Numero adra</span>
-          <h2 class="text-uppercase text-center  fs-2">{{person['numeroadra']}}</h2>
+          <h2 class="text-uppercase text-center " style="font-size: 2em;">{{person['numeroadra']}}</h2>
 
         </div>
         <div class="my-2 text-center d-flex flex-column text-center ">
@@ -29,13 +29,13 @@
 
               <li class="list-inline-item" *ngIf="isAdmin">
                 <a href="">
-                  <i class="fas fa-edit fs-3"></i>
+                  <i class="fas fa-edit fa-2xl"></i>
                 </a>
               </li>
 
               <li class="list-inline-item" *ngIf="isAdmin">
-                <a href="">
-                  <i class="fas fa-times-circle fs-3"></i>
+                <a  (click)="removeBeneficiar($event,person['id'])" style="cursor:pointer;">
+                  <i class="fas fa-times-circle text-danger"></i>
                 </a>
               </li>
 

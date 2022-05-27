@@ -9,21 +9,26 @@
             <div class="col-lg-12 col-md-12 pb-3">
               <div class=" d-flex justify-content-center">
                 <div class="user-wrap">
-                  <h1 style="font-size: 3em;" class="text-center">Elizabeth Dyer</h1>
-                  <h4 class="text-center">14 de Agosto de 1985</h4>
-                  <h4 class="text-center fs-3">416</h4>
+                  <h1 style="font-size: 3em;" class="text-center"> {{this.ben_info['nombreapellido']}}</h1>
+                  <h4 class="text-center">{{this.ben_info['fechanacimiento']}}</h4>
+                  <h4 class="text-center fs-3">{{this.ben_info['numeroadra']}}</h4>
 
                 </div>
               </div>
             </div>
-            <div class=" d-flex justify-content-between">
+            <div class="col-xl-12 d-flex justify-content-between">
 
-              <a class="btn btn-dark mt-1 mb-1 btn-sm"><i class="bi bi-pencil-square"></i></a>
-              <a class="btn btn-dark mt-1 mb-1 btn-sm" [routerLink]="['/add-alimentos/' + ben_id]" data-bs-toggle="tooltip"
+              <a class="btn btn-dark mt-1 mb-1 btn-sm" [routerLink]="['/add-beneficiario/']"
+                 [queryParams]="{ update: 'true',id:ben_id}"> <i class="bi bi-pencil-square"></i></a>
+              <a class="btn btn-dark mt-1 mb-1 btn-sm" [routerLink]="['/add-alimentos/' + ben_id]"
+                 data-bs-toggle="tooltip"
                  data-bs-placement="top" title="repartir alimentos"><i class="bi bi-save2"></i></a>
-              <a class="btn btn-dark mt-1 mb-1 btn-sm"><i class="bi bi-person-plus-fill"></i></a>
-              <a class="btn btn-dark mt-1 mb-1 btn-sm"><i class="bi bi-download"></i></a>
-              <a class="btn btn-dark mt-1 mb-1 btn-sm"><i class="bi bi-wrench"></i></a>
+              <a class="btn btn-dark mt-1 mb-1 btn-sm" [routerLink]="['/add-familiar/' + ben_id]"><i
+                class="bi bi-person-plus-fill"></i></a>
+              <a class="btn btn-dark mt-1 mb-1 btn-sm" (click)="generateHojaEntrega($event,ben_id)"><i
+                class="bi bi-download"></i></a>
+              <a class="btn btn-dark mt-1 mb-1 btn-sm" (click)="generateValoracionSocial($event,ben_id)"><i
+                class="bi bi-wrench"></i></a>
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,732 +40,419 @@
                 </ul>
               </div>
             </div>
-            <div class="col-lg-12 col-md-12  pt-3">
-              <div class="text-xl-right mt-4 mt-xl-0">
-                <p class="fs-4 text-center">Mensaje</p>
-                <p class="bg-warning p-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore doloremque
-                  odit possimus quo rem? Consequatur earum laboriosam libero modi molestiae nemo numquam obcaecati? Ad
-                  dolorem minus nihil quasi suscipit. Aspernatur?</p>
+            <div class="col-lg-12 col-md-12  pt-3  p-0">
+              <div class="  mt-4 mt-xl-0 ">
+                <p class="text-center">Mensaje</p>
+                <div class="bg-warning p-2 text-dark" style="min-height: 15vh">
+                  {{ben_info['mensaje']}}
+                </div>
               </div>
 
             </div>
           </div>
         </div>
       </div>
-      <div class="border-top">
-        <div class="wideget-user-tab" style="padding: 1em;">
-          <div class="tab-menu-heading">
-            <div class="tabs-menu1">
-              <ul class="nav d-flex justify-content-between">
-                <li class=""><a href="#tab-51" class="show active dec" data-bs-toggle="tab">Info</a></li>
-                <li><a href="#tab-61" data-bs-toggle="tab" class="dec">Familia</a></li>
-                <li><a href="#tab-71" data-bs-toggle="tab" class="dec">Entregas Alimentos</a></li>
-                <li><a href="#tab-71" data-bs-toggle="tab" class="dec">Documentacion</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+
       <div class="card-footer bg-transparent p-0">
-        <div class=" d-grid">
-          <a class="btn btn-dark mt-1 mb-1 btn-sm btn-block fs-3" routerLink="/" data-bs-toggle="tooltip"
-             data-bs-placement="top" title="Volver"><i class="bi bi-reply-fill"></i></a>
+
+        <a class="btn btn-dark mt-1 mb-1  btn-block  btn-lg" routerLink="/" data-bs-toggle="tooltip"
+           data-bs-placement="top" title="Volver"><i class="bi bi-reply-fill"></i></a>
 
 
-        </div>
       </div>
     </div>
 
-    <div class="tab-content   col-12 col-xl-8 p-0 mt-3 mt-xl-0 ps-xl-2 ">
-      <div class="tab-pane show active" id="tab-51">
-        <div id="profile-log-switch">
-          <div class="card">
-            <div class="card-body">
-              <!--              <div class="media-heading"><h5><strong>Personal Information</strong></h5></div>-->
-              <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4" style="font-size: 1.3em;">
-                <div class="col d-flex justify-content-center flex-column align-items-center">
-                  <h5 class="fw-bold">Documento de identidad</h5>
-                  <p class="text-muted">x8731368q</p>
-                </div>
-                <div class="col d-flex justify-content-center flex-column align-items-center">
-                  <h5 class="fw-bold">Sexo</h5>
-                  <p class="text-muted">Mujer</p>
-                </div>
-                <div class="col d-flex justify-content-center flex-column align-items-center">
-                  <h5 class="fw-bold">Categoria</h5>
-                  <p class="text-muted">Domingo 2</p>
-                </div>
-                <div class="col d-flex justify-content-center flex-column align-items-center">
-                  <h5 class="fw-bold">Nacionalidad</h5>
-                  <p class="text-muted">Peruana</p>
-                </div>
-                <div class="col d-flex justify-content-center flex-column align-items-center">
-                  <h5 class="fw-bold">Papeles</h5>
-                  <p class="text-muted">no</p>
-                </div>
-                <div class="col d-flex justify-content-center flex-column align-items-center">
-                  <h5 class="fw-bold">Numero de entregas</h5>
-                  <p class="text-muted">0</p>
-                </div>
-                <div class="col d-flex justify-content-center flex-column align-items-center">
-                  <h5 class="fw-bold">Telefono</h5>
-                  <p class="text-muted">604150313</p>
-                </div>
-                <div class="col d-flex justify-content-center flex-column align-items-center">
-                  <h5 class="fw-bold">Ciudad</h5>
-                  <p class="text-muted">illescas</p>
-                </div>
-                <div class="col d-flex justify-content-center flex-column align-items-center">
-                  <h5 class="fw-bold">Domicilio</h5>
-                  <p class="text-muted">calle sin numero</p>
-                </div>
-                <div class="col d-flex justify-content-center flex-column align-items-center">
-                  <h5 class="fw-bold">Edad</h5>
-                  <p class="text-muted">34</p>
-                </div>
+    <div class=" card  col-12 col-xl-8  mt-3 mt-xl-0 ps-xl-2 ">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+             aria-controls="pills-home" aria-selected="true">Info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-familia-tab" data-toggle="pill" href="#pills-familia" role="tab"
+             aria-controls="pills-profile" aria-selected="false">Familia</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-alimentos-tab" data-toggle="pill" href="#pills-alimentos" role="tab"
+             aria-controls="pills-contact" aria-selected="false">Alimentos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-docmentacion-tab" data-toggle="pill" href="#pills-docmentacion" role="tab"
+             aria-controls="pills-contact" aria-selected="false">Documentacion</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+          <div class="row more-info text-center p-2">
+            <div class="col-md-4">
+              <h3>
+                <b>Documento de identidad</b>
+              </h3>
+              <p>
+                {{ben_info['dni']}}
 
+              </p>
+            </div>
+            <div class="col-md-4">
+              <h3>
+                <b>Sexo</b>
+              </h3>
+              <p> {{ben_info['sexo'] == 'h' ? "Hombre" : "Mujer"}}</p>
+            </div>
+            <div class="col-md-4">
+              <h3>
+                <b>Categoria</b>
+              </h3>
+              <p>{{ben_info['categoria']}}</p>
+            </div>
+          </div>
+          <div class="row more-info text-center  p-2">
+            <div class="col-md-4">
+              <h3>
+                <b>Nacionalidad</b>
+              </h3>
+              <p>{{ben_info['nacionalidad']}}</p>
+            </div>
+            <div class="col-md-4">
+              <h3>
+                <b>Papeles</b>
+              </h3>
+              <p>
+
+                {{ben_info['areacte'] ? "Si" : "No"}}
+              </p>
+            </div>
+            <div class="col-md-4">
+              <h3>
+                <b>Ciudad</b>
+              </h3>
+              <p>
+                {{ben_info['ciudad']}}</p>
+            </div>
+          </div>
+          <div class="row more-info text-center  p-2">
+            <div class="col-md-4">
+              <h3>
+                <b>Numero de entregas</b>
+              </h3>
+              <p>
+                {{ben_info['alimentos'] ? ben_info['alimentos'].length : 0}}</p>
+            </div>
+            <div class="col-md-4">
+              <h3>
+                <b>Telefono</b>
+              </h3>
+              <p>
+                <a href="tel:{{ben_info['telefono']}}">
+                  {{ben_info['telefono']}}</a>
+              </p>
+            </div>
+            <div class="col-md-4">
+              <h3>
+                <b>Domicilio</b>
+              </h3>
+              <p> {{ben_info['domicilio']}}</p>
+            </div>
+            <div class="col-md-4">
+              <h3>
+                <b>Discapacidad</b>
+              </h3>
+              <p> {{ben_info['discapacidad'] ? "Si" : "No"}}</p>
+            </div>
+            <div class="col-md-4">
+              <h3>
+                <b>Email</b>
+              </h3>
+              <p> {{ben_info['email']}}</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="tab-pane fade" id="pills-familia" role="tabpanel" aria-labelledby="pills-profile-tab"
+             style="overflow-x: auto">
+          <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">parentesco</th>
+              <th scope="col">sexo</th>
+              <th scope="col">dni</th>
+              <th scope="col">edad</th>
+              <th scope="col">otros documentos</th>
+              <th scope="col">fecha nacimiento</th>
+              <th scope="col">acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let familiar of ben_info['familiares']; let i = index">
+              <td style="word-break: break-all" class="text-capitalize"> {{familiar['nombreapellido']}}</td>
+              <td>{{familiar['parentesco']}}</td>
+              <td>{{familiar['sexo'] == 'm' ? "mujer" : "hombre"}}</td>
+              <td>{{familiar['dni']}}</td>
+              <td>{{familiar['edad']}}</td>
+              <td>{{familiar['otros_documentos']}}</td>
+              <td>{{familiar['fechanacimiento']}}</td>
+              <td style="padding-top: .5rem">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-sm btn-warning" [routerLink]="['/add-familiar/' + ben_id]"
+                          [queryParams]="{ update: 'true',fam_id:familiar['id']}">Edit
+                  </button>
+                  <button type="button" class="btn btn-sm btn-danger"
+                          (click)="removeFamiliar($event,ben_id,familiar['id'])">Borrar
+                  </button>
+
+                </div>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+
+
+        </div>
+        <div class="tab-pane fade" id="pills-alimentos" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <div id="accordion">
+            <div class="card mt-2 mb-2" *ngFor="let alimento of ben_info['alimentos']; let i = index">
+              <div class="card-header center-all" id="headingOne">
+                <h5 class="mb-0">
+                  <!--                  data-toggle="collapse" data-target="{{'#collapse'+ i}}"-->
+                  <button class="btn btn-link"
+                          data-toggle="collapse" [attr.data-target]="'#collapse'+i"
+                          aria-expanded="true"
+                          aria-controls="collapseOne">
+                    {{alimento['createdDate']|date}}
+                  </button>
+
+                </h5>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-warning" [routerLink]="['/add-alimentos/' + ben_id]"
+                          [queryParams]="{ update: 'true',alm_id:alimento['id']}">Edit
+                  </button>
+                  <button type="button" class="btn btn-danger" (click)="removeAlimento($event,ben_id,alimento['id'])">
+                    Delete
+                  </button>
+
+                </div>
               </div>
 
+              <div id="collapse{{i}}" class="collapse  " aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row more-info text-center  p-2">
+                    <div class="col-md-4">
+                      <h4>
+                        <b>Arroz Blanco</b>
+                      </h4>
+                      <p>
+                        {{alimento['alimento1']}}</p>
+                    </div>
+                    <div class="col-md-4">
+                      <h4>
+                        <b>Alubia Cocida</b>
+                      </h4>
+                      <p>
+                        {{alimento['alimento2']}}
+                      </p>
+                    </div>
+                    <div class="col-md-4">
+                      <h4>
+                        <b>Conserva Atun</b>
+                      </h4>
+                      <p> {{alimento['alimento3']}}</p>
+                    </div>
+                  </div>
+                  <div class="row more-info text-center  p-2">
+                    <div class="col-md-4">
+                      <h4>
+                        <b>Pasta Macarron</b>
+                      </h4>
+                      <p>
+                        {{alimento['alimento4']}}</p>
+                    </div>
+                    <div class="col-md-4">
+                      <h4>
+                        <b>Tomate Frito</b>
+                      </h4>
+                      <p>
+                        {{alimento['alimento5']}}
+                      </p>
+                    </div>
+                    <div class="col-md-4">
+                      <h4>
+                        <b>Galletas</b>
+                      </h4>
+                      <p> {{alimento['alimento6']}}</p>
+                    </div>
+                  </div>
+                  <div class="row more-info text-center  p-2">
+                    <div class="col-md-4">
+                      <h4>
+                        <b>Macedonia Verduras</b>
+                      </h4>
+                      <p>
+                        {{alimento['alimento7']}}</p>
+                    </div>
+                    <div class="col-md-4">
+                      <h4>
+                        <b>Fruta Conserva</b>
+                      </h4>
+                      <p>
+                        {{alimento['alimento8']}}
+                      </p>
+                    </div>
+                    <div class="col-md-4">
+                      <h4>
+                        <b>Cacao Soluble</b>
+                      </h4>
+                      <p> {{alimento['alimento9']}}</p>
+                    </div>
+                  </div>
+                  <div class="row more-info text-center  p-2">
+                    <div class="col-md-4">
+                      <h4>
+                        <b>Tarritos Pollo</b>
+                      </h4>
+                      <p>
+                        {{alimento['alimento10']}}</p>
+                    </div>
+                    <div class="col-md-4">
+                      <h4>
+                        <b>Tarritos Fruta</b>
+                      </h4>
+                      <p>
+                        {{alimento['alimento11']}}
+                      </p>
+                    </div>
+                    <div class="col-md-4">
+                      <h4>
+                        <b>Leche UHT</b>
+                      </h4>
+                      <p> {{alimento['alimento12']}}</p>
+                    </div>
+                  </div>
+                  <div class="row more-info text-center  p-2">
+                    <div class="col-md-4">
+                      <h4>
+                        <b>Aceite Oliva</b>
+                      </h4>
+                      <p>
+                        {{alimento['alimento13']}}</p>
+                    </div>
+                    <div class="col-md-4">
+                      <h4>
+                        <b>Firma</b>
+                      </h4>
+                      <p>
+                        <img style="width: 50%;" src="{{alimento['signature']}}" alt="">
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
             </div>
+
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pills-docmentacion" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <div class="row more-info text-center  p-2">
+            <div class="col-md-4">
+              <h3>
+                <b>Empadronamiento</b>
+              </h3>
+              <p>
+                <i class="bi bi-check2-circle text-success text-2em" *ngIf="ben_info['empadronamiento'];else noemp"></i>
+                <ng-template #noemp>
+                  <i class="bi bi-x-circle text-danger text-2em"></i>
+                </ng-template>
+              </p>
+            </div>
+            <div class="col-md-4">
+              <h3>
+                <b>Libro familia</b>
+              </h3>
+              <p>
+                <i class="bi bi-check2-circle text-success text-2em" *ngIf="ben_info['librofamilia'];else noemp"></i>
+                <ng-template #noemp>
+                  <i class="bi bi-x-circle text-danger text-2em"></i>
+                </ng-template>
+
+              </p>
+            </div>
+            <div class="col-md-4">
+              <h3>
+                <b>Fotocopia dni</b>
+              </h3>
+
+              <i class="bi bi-check2-circle text-success text-2em" *ngIf="ben_info['fotocopiadni'];else noemp"></i>
+              <ng-template #noemp>
+                <i class="bi bi-x-circle text-danger text-2em"></i>
+              </ng-template>
+            </div>
+          </div>
+          <div class="row more-info text-center  p-2">
+            <div class="col-md-4">
+              <h3>
+                <b>Prestaciones</b>
+              </h3>
+              <p>
+
+                <i class="bi bi-check2-circle text-success text-2em" *ngIf="ben_info['prestaciones'];else noemp"></i>
+                <ng-template #noemp>
+                  <i class="bi bi-x-circletext-danger text-2em"></i>
+                </ng-template>
+            </div>
+            <div class="col-md-4">
+              <h3>
+                <b>Nomnia</b>
+              </h3>
+              <p>
+
+                <i class="bi bi-check2-circle text-success text-2em" *ngIf="ben_info['nomnia'];else noemp"></i>
+                <ng-template #noemp>
+                  <i class="bi bi-x-circletext-danger text-2em"></i>
+                </ng-template>
+              </p>
+            </div>
+            <div class="col-md-4">
+              <h3>
+                <b>Certificado negativo</b>
+              </h3>
+
+              <i class="bi bi-check2-circle text-success text-2em" *ngIf="ben_info['certnegativo'];else noemp"></i>
+              <ng-template #noemp>
+                <i class="bi bi-x-circle text-danger text-2em"></i>
+              </ng-template>
+            </div>
+          </div>
+          <div class="row more-info text-center  p-2">
+            <div class="col-md-4">
+              <h3>
+                <b>Aquiler,Hipoteca</b>
+              </h3>
+              <p>
+                <i class="bi bi-check2-circle text-success text-2em" *ngIf="ben_info['aquilerhipoteca'];else noemp"></i>
+                <ng-template #noemp>
+                  <i class="bi bi-x-circletext-danger text-2em"></i>
+                </ng-template>
+              </p>
+            </div>
+            <div class="col-md-4">
+              <h3>
+                <b>Recibos</b>
+              </h3>
+              <p>
+
+                <i class="bi bi-check2-circle text-success text-2em" *ngIf="ben_info['recibos'];else noemp"></i>
+                <ng-template #noemp>
+                  <i class="bi bi-x-circle text-danger text-2em"></i>
+                </ng-template>
+              </p>
+            </div>
+
           </div>
         </div>
       </div>
 
-
-      <div class="tab-pane " id="tab-61">
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-          <div class="col">
-            <div class="card text-center">
-              <div class="card-body">
-                <h5 class="card-title fs-3 pb-2">YOUSSEF HAMZA</h5>
-                <div class="row row-cols-2">
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Parentesco</h5>
-                      <p class="text-muted ps-2">ESPOSO</p>
-                    </div>
-                  </div>
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Dni</h5>
-                      <p class="text-muted ps-2">X4202155D</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Sexo</h5>
-                      <p class="text-muted ps-2"> h</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-
-                    <div class="col d-flex     align-items-center">
-                      <h5 class="fw-bold">Edad</h5>
-                      <p class="text-muted ps-2"> 43</p>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="col">
-
-                  <div class="col d-flex    align-items-center">
-                    <h5 class="fw-bold">Nacido</h5>
-                    <p class="text-muted ps-2"> 10-20-1978</p>
-                  </div>
-                </div>
-
-                <!--                <a href="#" class="btn btn-primary">Go somewhere</a>-->
-              </div>
-              <div class="card-footer">
-                <div class=" d-flex ">
-                  <a class="btn btn-primary mt-1 mb-1 btn-sm"><i class="bi bi-pencil-square"></i></a>
-                  <a class="btn btn-danger mt-1 mb-1 btn-sm ms-3"><i class="bi bi-person-x-fill"></i></a>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card text-center">
-              <div class="card-body">
-                <h5 class="card-title fs-3 pb-2">YOUSSEF HAMZA</h5>
-                <div class="row row-cols-2">
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Parentesco</h5>
-                      <p class="text-muted ps-2">ESPOSO</p>
-                    </div>
-                  </div>
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Dni</h5>
-                      <p class="text-muted ps-2">X4202155D</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Sexo</h5>
-                      <p class="text-muted ps-2"> h</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-
-                    <div class="col d-flex     align-items-center">
-                      <h5 class="fw-bold">Edad</h5>
-                      <p class="text-muted ps-2"> 43</p>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="col">
-
-                  <div class="col d-flex    align-items-center">
-                    <h5 class="fw-bold">Nacido</h5>
-                    <p class="text-muted ps-2"> 10-20-1978</p>
-                  </div>
-                </div>
-
-                <!--                <a href="#" class="btn btn-primary">Go somewhere</a>-->
-              </div>
-              <div class="card-footer">
-                <div class=" d-flex ">
-                  <a class="btn btn-primary mt-1 mb-1 btn-sm"><i class="bi bi-pencil-square"></i></a>
-                  <a class="btn btn-danger mt-1 mb-1 btn-sm ms-3"><i class="bi bi-person-x-fill"></i></a>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card text-center">
-              <div class="card-body">
-                <h5 class="card-title fs-3 pb-2">YOUSSEF HAMZA</h5>
-                <div class="row row-cols-2">
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Parentesco</h5>
-                      <p class="text-muted ps-2">ESPOSO</p>
-                    </div>
-                  </div>
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Dni</h5>
-                      <p class="text-muted ps-2">X4202155D</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Sexo</h5>
-                      <p class="text-muted ps-2"> h</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-
-                    <div class="col d-flex     align-items-center">
-                      <h5 class="fw-bold">Edad</h5>
-                      <p class="text-muted ps-2"> 43</p>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="col">
-
-                  <div class="col d-flex    align-items-center">
-                    <h5 class="fw-bold">Nacido</h5>
-                    <p class="text-muted ps-2"> 10-20-1978</p>
-                  </div>
-                </div>
-
-                <!--                <a href="#" class="btn btn-primary">Go somewhere</a>-->
-              </div>
-              <div class="card-footer">
-                <div class=" d-flex ">
-                  <a class="btn btn-primary mt-1 mb-1 btn-sm"><i class="bi bi-pencil-square"></i></a>
-                  <a class="btn btn-danger mt-1 mb-1 btn-sm ms-3"><i class="bi bi-person-x-fill"></i></a>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card text-center">
-              <div class="card-body">
-                <h5 class="card-title fs-3 pb-2">YOUSSEF HAMZA</h5>
-                <div class="row row-cols-2">
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Parentesco</h5>
-                      <p class="text-muted ps-2">ESPOSO</p>
-                    </div>
-                  </div>
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Dni</h5>
-                      <p class="text-muted ps-2">X4202155D</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Sexo</h5>
-                      <p class="text-muted ps-2"> h</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-
-                    <div class="col d-flex     align-items-center">
-                      <h5 class="fw-bold">Edad</h5>
-                      <p class="text-muted ps-2"> 43</p>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="col">
-
-                  <div class="col d-flex    align-items-center">
-                    <h5 class="fw-bold">Nacido</h5>
-                    <p class="text-muted ps-2"> 10-20-1978</p>
-                  </div>
-                </div>
-
-                <!--                <a href="#" class="btn btn-primary">Go somewhere</a>-->
-              </div>
-              <div class="card-footer">
-                <div class=" d-flex ">
-                  <a class="btn btn-primary mt-1 mb-1 btn-sm"><i class="bi bi-pencil-square"></i></a>
-                  <a class="btn btn-danger mt-1 mb-1 btn-sm ms-3"><i class="bi bi-person-x-fill"></i></a>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card text-center">
-              <div class="card-body">
-                <h5 class="card-title fs-3 pb-2">YOUSSEF HAMZA</h5>
-                <div class="row row-cols-2">
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Parentesco</h5>
-                      <p class="text-muted ps-2">ESPOSO</p>
-                    </div>
-                  </div>
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Dni</h5>
-                      <p class="text-muted ps-2">X4202155D</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Sexo</h5>
-                      <p class="text-muted ps-2"> h</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-
-                    <div class="col d-flex     align-items-center">
-                      <h5 class="fw-bold">Edad</h5>
-                      <p class="text-muted ps-2"> 43</p>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="col">
-
-                  <div class="col d-flex    align-items-center">
-                    <h5 class="fw-bold">Nacido</h5>
-                    <p class="text-muted ps-2"> 10-20-1978</p>
-                  </div>
-                </div>
-
-                <!--                <a href="#" class="btn btn-primary">Go somewhere</a>-->
-              </div>
-              <div class="card-footer">
-                <div class=" d-flex ">
-                  <a class="btn btn-primary mt-1 mb-1 btn-sm"><i class="bi bi-pencil-square"></i></a>
-                  <a class="btn btn-danger mt-1 mb-1 btn-sm ms-3"><i class="bi bi-person-x-fill"></i></a>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card text-center">
-              <div class="card-body">
-                <h5 class="card-title fs-3 pb-2">YOUSSEF HAMZA</h5>
-                <div class="row row-cols-2">
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Parentesco</h5>
-                      <p class="text-muted ps-2">ESPOSO</p>
-                    </div>
-                  </div>
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Dni</h5>
-                      <p class="text-muted ps-2">X4202155D</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Sexo</h5>
-                      <p class="text-muted ps-2"> h</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-
-                    <div class="col d-flex     align-items-center">
-                      <h5 class="fw-bold">Edad</h5>
-                      <p class="text-muted ps-2"> 43</p>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="col">
-
-                  <div class="col d-flex    align-items-center">
-                    <h5 class="fw-bold">Nacido</h5>
-                    <p class="text-muted ps-2"> 10-20-1978</p>
-                  </div>
-                </div>
-
-                <!--                <a href="#" class="btn btn-primary">Go somewhere</a>-->
-              </div>
-              <div class="card-footer">
-                <div class=" d-flex ">
-                  <a class="btn btn-primary mt-1 mb-1 btn-sm"><i class="bi bi-pencil-square"></i></a>
-                  <a class="btn btn-danger mt-1 mb-1 btn-sm ms-3"><i class="bi bi-person-x-fill"></i></a>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card text-center">
-              <div class="card-body">
-                <h5 class="card-title fs-3 pb-2">YOUSSEF HAMZA</h5>
-                <div class="row row-cols-2">
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Parentesco</h5>
-                      <p class="text-muted ps-2">ESPOSO</p>
-                    </div>
-                  </div>
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Dni</h5>
-                      <p class="text-muted ps-2">X4202155D</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Sexo</h5>
-                      <p class="text-muted ps-2"> h</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-
-                    <div class="col d-flex     align-items-center">
-                      <h5 class="fw-bold">Edad</h5>
-                      <p class="text-muted ps-2"> 43</p>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="col">
-
-                  <div class="col d-flex    align-items-center">
-                    <h5 class="fw-bold">Nacido</h5>
-                    <p class="text-muted ps-2"> 10-20-1978</p>
-                  </div>
-                </div>
-
-                <!--                <a href="#" class="btn btn-primary">Go somewhere</a>-->
-              </div>
-              <div class="card-footer">
-                <div class=" d-flex ">
-                  <a class="btn btn-primary mt-1 mb-1 btn-sm"><i class="bi bi-pencil-square"></i></a>
-                  <a class="btn btn-danger mt-1 mb-1 btn-sm ms-3"><i class="bi bi-person-x-fill"></i></a>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card text-center">
-              <div class="card-body">
-                <h5 class="card-title fs-3 pb-2">YOUSSEF HAMZA</h5>
-                <div class="row row-cols-2">
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Parentesco</h5>
-                      <p class="text-muted ps-2">ESPOSO</p>
-                    </div>
-                  </div>
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Dni</h5>
-                      <p class="text-muted ps-2">X4202155D</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Sexo</h5>
-                      <p class="text-muted ps-2"> h</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-
-                    <div class="col d-flex     align-items-center">
-                      <h5 class="fw-bold">Edad</h5>
-                      <p class="text-muted ps-2"> 43</p>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="col">
-
-                  <div class="col d-flex    align-items-center">
-                    <h5 class="fw-bold">Nacido</h5>
-                    <p class="text-muted ps-2"> 10-20-1978</p>
-                  </div>
-                </div>
-
-                <!--                <a href="#" class="btn btn-primary">Go somewhere</a>-->
-              </div>
-              <div class="card-footer">
-                <div class=" d-flex ">
-                  <a class="btn btn-primary mt-1 mb-1 btn-sm"><i class="bi bi-pencil-square"></i></a>
-                  <a class="btn btn-danger mt-1 mb-1 btn-sm ms-3"><i class="bi bi-person-x-fill"></i></a>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card text-center">
-              <div class="card-body">
-                <h5 class="card-title fs-3 pb-2">YOUSSEF HAMZA</h5>
-                <div class="row row-cols-2">
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Parentesco</h5>
-                      <p class="text-muted ps-2">ESPOSO</p>
-                    </div>
-                  </div>
-                  <div class="col  ">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Dni</h5>
-                      <p class="text-muted ps-2">X4202155D</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-                    <div class="col d-flex    align-items-center">
-                      <h5 class="fw-bold">Sexo</h5>
-                      <p class="text-muted ps-2"> h</p>
-                    </div>
-                  </div>
-                  <div class="col  p-2">
-
-                    <div class="col d-flex     align-items-center">
-                      <h5 class="fw-bold">Edad</h5>
-                      <p class="text-muted ps-2"> 43</p>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="col">
-
-                  <div class="col d-flex    align-items-center">
-                    <h5 class="fw-bold">Nacido</h5>
-                    <p class="text-muted ps-2"> 10-20-1978</p>
-                  </div>
-                </div>
-
-                <!--                <a href="#" class="btn btn-primary">Go somewhere</a>-->
-              </div>
-              <div class="card-footer">
-                <div class=" d-flex ">
-                  <a class="btn btn-primary mt-1 mb-1 btn-sm"><i class="bi bi-pencil-square"></i></a>
-                  <a class="btn btn-danger mt-1 mb-1 btn-sm ms-3"><i class="bi bi-person-x-fill"></i></a>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane" id="tab-71">
-
-      </div>
-      <div class="tab-pane" id="tab-71">
-        <div class="row  mb-5">
-          <div class=" col-lg-6 col-md-12">
-            <div class="card border p-0 over-flow-hidden">
-              <div class="media card-body media-xs overflow-visible "><img class="avatar brround avatar-md me-3"
-                                                                           src="../assets/images/users/18.jpg"
-                                                                           alt="avatar-img">
-                <div class="media-body valign-middle"><a href="" class=" fw-semibold text-dark">John Paige</a>
-                  <p class="text-muted mb-0">johan@gmail.com</p></div>
-                <div class="media-body valign-middle text-end overflow-visible mt-2">
-                  <button class="btn btn-primary" type="button">Follow</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" col-lg-6 col-md-12">
-            <div class="card border p-0 over-flow-hidden">
-              <div class="media card-body media-xs overflow-visible "><span
-                class="avatar cover-image avatar-md brround bg-pink me-3">LQ</span>
-                <div class="media-body valign-middle mt-0"><a href="" class="fw-semibold text-dark">Lillian Quinn</a>
-                  <p class="text-muted mb-0">lilliangore</p></div>
-                <div class="media-body valign-middle text-end overflow-visible mt-1">
-                  <button class="btn btn-primary" type="button">Follow</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" col-lg-6 col-md-12">
-            <div class="card border p-0 over-flow-hidden mb-lg-0">
-              <div class="media card-body media-xs overflow-visible "><span
-                class="avatar cover-image avatar-md brround me-3 bg-primary">IH</span>
-                <div class="media-body valign-middle mt-0"><a href="" class="fw-semibold text-dark">Irene Harris</a>
-                  <p class="text-muted mb-0">ireneharris@gmail.com</p></div>
-                <div class="media-body valign-middle text-end overflow-visible mt-1">
-                  <button class="btn btn-primary" type="button">Follow</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" col-lg-6 col-md-12">
-            <div class="card border p-0 over-flow-hidden mb-lg-0">
-              <div class="media card-body media-xs overflow-visible "><img class="avatar brround avatar-md me-3"
-                                                                           src="../assets/images/users/2.jpg"
-                                                                           alt="avatar-img">
-                <div class="media-body valign-middle mt-0"><a href="" class="text-dark fw-semibold">Harry Fisher</a>
-                  <p class="text-muted mb-0">harryuqt</p></div>
-                <div class="media-body valign-middle text-end overflow-visible mt-1">
-                  <button class="btn btn-primary" type="button">Follow</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" col-lg-6 col-md-12">
-            <div class="card border p-0 over-flow-hidden">
-              <div class="media card-body media-xs overflow-visible "><span
-                class="avatar cover-image avatar-md brround bg-pink me-3">AB</span>
-                <div class="media-body valign-middle mt-0"><a href="" class="fw-semibold text-dark">Aida Bugg</a>
-                  <p class="text-muted mb-0">Aidasr</p></div>
-                <div class="media-body valign-middle text-end overflow-visible mt-1">
-                  <button class="btn btn-primary" type="button">Follow</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" col-lg-6 col-md-12">
-            <div class="card border p-0 over-flow-hidden">
-              <div class="media card-body media-xs overflow-visible "><span
-                class="avatar cover-image avatar-md brround bg-pink me-3">LQ</span>
-                <div class="media-body valign-middle mt-0"><a href="" class="fw-semibold text-dark">Lillian Quinn</a>
-                  <p class="text-muted mb-0">lilliangore</p></div>
-                <div class="media-body valign-middle text-end overflow-visible mt-1">
-                  <button class="btn btn-primary" type="button">Follow</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane" id="tab-81">
-        <div class="row">
-          <div class=" col-lg-6 col-md-12">
-            <div class="card border p-0 over-flow-hidden">
-              <div class="media card-body media-xs overflow-visible "><img class="avatar brround avatar-md me-3"
-                                                                           src="../assets/images/users/18.jpg"
-                                                                           alt="avatar-img">
-                <div class="media-body valign-middle"><a href="" class=" fw-semibold text-dark">John Paige</a>
-                  <p class="text-muted mb-0">johan@gmail.com</p></div>
-                <div class="media-body valign-middle text-end overflow-visible mt-2">
-                  <button class="btn btn-primary" type="button">Follow</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" col-lg-6 col-md-12">
-            <div class="card border p-0 over-flow-hidden">
-              <div class="media card-body media-xs overflow-visible "><span
-                class="avatar cover-image avatar-md brround bg-pink me-3">LQ</span>
-                <div class="media-body valign-middle mt-0"><a href="" class="fw-semibold text-dark">Lillian Quinn</a>
-                  <p class="text-muted mb-0">lilliangore</p></div>
-                <div class="media-body valign-middle text-end overflow-visible mt-1">
-                  <button class="btn btn-primary" type="button">Follow</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" col-lg-6 col-md-12">
-            <div class="card border p-0 over-flow-hidden mb-lg-0">
-              <div class="media card-body media-xs overflow-visible "><span
-                class="avatar cover-image avatar-md brround me-3 bg-primary">IH</span>
-                <div class="media-body valign-middle mt-0"><a href="" class="fw-semibold text-dark">Irene Harris</a>
-                  <p class="text-muted mb-0">ireneharris@gmail.com</p></div>
-                <div class="media-body valign-middle text-end overflow-visible mt-1">
-                  <button class="btn btn-primary" type="button">Follow</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" col-lg-6 col-md-12">
-            <div class="card border p-0 over-flow-hidden">
-              <div class="media card-body media-xs overflow-visible "><img class="avatar brround avatar-md me-3"
-                                                                           src="../assets/images/users/3.jpg"
-                                                                           alt="avatar-img">
-                <div class="media-body valign-middle mt-0"><a href="" class="text-dark fw-semibold">Saureen Bgist</a>
-                  <p class="text-muted mb-0">harryuqt</p></div>
-                <div class="media-body valign-middle text-end overflow-visible mt-1">
-                  <button class="btn btn-primary" type="button">Follow</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" col-lg-6 col-md-12">
-            <div class="card border p-0 over-flow-hidden">
-              <div class="media card-body media-xs overflow-visible "><img class="avatar brround avatar-md me-3"
-                                                                           src="../assets/images/users/2.jpg"
-                                                                           alt="avatar-img">
-                <div class="media-body valign-middle mt-0"><a href="" class="text-dark fw-semibold">Maureen
-                  Biologist</a>
-                  <p class="text-muted mb-0">harryuqt</p></div>
-                <div class="media-body valign-middle text-end overflow-visible mt-1">
-                  <button class="btn btn-primary" type="button">Follow</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class=" col-lg-6 col-md-12">
-            <div class="card border p-0 over-flow-hidden">
-              <div class="media card-body media-xs overflow-visible "><span
-                class="avatar cover-image avatar-md brround me-3 bg-info">PF</span>
-                <div class="media-body valign-middle mt-0"><a href="" class="fw-semibold text-dark">Paddy
-                  O'Furniture.</a>
-                  <p class="text-muted mb-0">ireneharris@gmail.com</p></div>
-                <div class="media-body valign-middle text-end overflow-visible mt-1">
-                  <button class="btn btn-primary" type="button">Follow</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
   </div>

@@ -6,6 +6,7 @@ import {ToastrService} from "ngx-toastr";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Alimentos} from "../../models/alimentos";
 
+// @ts-ignore
 @Component({
   selector: 'app-add-alimentos',
   templateUrl: './add-alimentos.component.html',
@@ -14,12 +15,16 @@ import {Alimentos} from "../../models/alimentos";
 export class AddAlimentosComponent implements OnInit {
 
   alimentos!: Alimentos
-  ben_id!: number
-  @ViewChild(SignaturePad) signaturePad: SignaturePad | undefined;
+  ben_id!: string
+  edit_mode: boolean
+  alm_id: string
+
+  @ViewChild(SignaturePad) signaturePad: SignaturePad;
+
 
   signaturePadOptions: Object = {
     'minWidth': 2,
-    'canvasWidth': 510,
+    'canvasWidth': 490,
     'canvasHeight': 200
   };
 
@@ -48,7 +53,52 @@ export class AddAlimentosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ben_id = parseInt(this.activeRoute.snapshot.params['ben_id'])
+    let vm = this;
+    this.ben_id = this.activeRoute.snapshot.params['ben_id']
+    this.activeRoute.queryParams
+      .subscribe(params => {
+          console.log(params); // { order: "popular" }
+          this.edit_mode = params['update'] == 'true'
+          this.alm_id = params['alm_id']
+
+          // console.log(this.ben_id)
+          // console.log(this.edit_mode)
+          if (vm.edit_mode) {
+
+            vm.adraService.getAlimentos(this.ben_id, this.alm_id).subscribe(
+              (data: any) => {
+                console.log(data);
+                this.myForm = new FormGroup({
+                  arroz_blanco: new FormControl(data['alimento1'], Validators.required),
+                  alubia_cocida: new FormControl(data['alimento2'], Validators.required),
+                  conserva_atun: new FormControl(data['alimento3'], Validators.required),
+                  pasta_macarron: new FormControl(data['alimento4'], Validators.required),
+                  conserva_tomate_frito: new FormControl(data['alimento5'], Validators.required),
+                  galletas: new FormControl(data['alimento6'], Validators.required),
+                  macedonia_verduras: new FormControl(data['alimento7'], Validators.required),
+                  fruta_conserva: new FormControl(data['alimento8'], Validators.required),
+                  cacao: new FormControl(data['alimento9'], Validators.required),
+                  tarritos_pollo: new FormControl(data['alimento10'], Validators.required),
+                  tarritos_fruta: new FormControl(data['alimento11'], Validators.required),
+                  leche: new FormControl(data['alimento12'], Validators.required),
+                  aceite: new FormControl(data['alimento13'], Validators.required),
+                })
+                this.signaturePad.fromDataURL(data['signature'])
+
+              },
+              err => {
+
+                console.log(err);
+
+              }
+            )
+          } else {
+            vm.myForm.reset();
+
+          }
+
+        }
+      );
   }
 
   drawComplete() {
@@ -63,11 +113,11 @@ export class AddAlimentosComponent implements OnInit {
     this.signaturePad!.clear();
   }
 
-
   addAlimentos() {
-    console.log('Valid?', this.myForm); // true or false
-    console.log('Valid?', this.myForm.valid); // true or false
-    console.log('errors?', this.myForm.errors); // true or false
+    let vm = this;
+    // console.log('Valid?', this.myForm); // true or false
+    // console.log('Valid?', this.myForm.valid); // true or false
+    // console.log('errors?', this.myForm.errors); // true or false
     if (this.myForm.valid) {
       this.alimentos = new Alimentos(
         this.myForm.value.arroz_blanco,
@@ -86,20 +136,32 @@ export class AddAlimentosComponent implements OnInit {
         this.signaturePad!.toDataURL()
       )
       console.log(this.alimentos)
-      this.adraService.anadirAlimentos(this.alimentos, this.ben_id).subscribe(
-        (data: any) => {
-          this.toastr.success('Alimentos entregados correctamente', 'Beneficario!');
-          this.router.navigate(['/detail-beneficiario/' + this.ben_id])
-          // console.log(data);
+      if (vm.edit_mode) {
+        this.adraService.updateAlimento(this.alimentos, vm.ben_id, vm.alm_id).subscribe(
+          (data: any) => {
+            this.toastr.success('Modificado correctamente', 'Alimentos!');
+            this.router.navigate(['/detail-beneficiario/' + vm.ben_id])
+          },
+          err => {
+            this.toastr.error('' + err.error.message, 'Alimentos!');
+            console.log(err);
 
+          }
+        )
+      } else {
+        this.adraService.anadirAlimentos(this.alimentos, this.ben_id).subscribe(
+          (data: any) => {
+            this.toastr.success('Alimentos entregados correctamente', 'Alimentos!');
+            this.router.navigate(['/detail-beneficiario/' + this.ben_id])
+          },
+          err => {
+            this.toastr.error('' + err.error.message, 'Alimentos!');
+            console.log(err);
 
-        },
-        err => {
-          this.toastr.error('' + err.error.message, 'Beneficario!');
-          console.log(err);
+          }
+        )
+      }
 
-        }
-      )
     }
   }
 

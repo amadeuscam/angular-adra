@@ -32,7 +32,7 @@ export class BenInterceptorService implements HttpInterceptor {
     )
 
     return next.handle(intReq).pipe(catchError((err: HttpErrorResponse) => {
-
+      console.log(err)
       if (err.status === 401) {
         const dto: JwtDTO = new JwtDTO(this.tokenService.getToken());
         return this.authService.refresh(dto).pipe(concatMap((data: any) => {

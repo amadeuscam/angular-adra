@@ -24,6 +24,8 @@ import { AddAlimentosComponent } from './adra/add-alimentos/add-alimentos.compon
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignaturePadModule } from 'angular2-signaturepad';
+import {MatTabsModule} from '@angular/material/tabs';
+import { AddFamiliarComponent } from './adra/add-familiar/add-familiar.component';
 registerLocaleData(es);
 
 @NgModule({
@@ -41,6 +43,7 @@ registerLocaleData(es);
     ChangePasswordComponent,
     AddBeneficiariosComponent,
     AddAlimentosComponent,
+    AddFamiliarComponent,
 
 
   ],
@@ -52,7 +55,8 @@ registerLocaleData(es);
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    SignaturePadModule
+    SignaturePadModule,
+    MatTabsModule
   ],
   providers: [
     interceptorProvider,

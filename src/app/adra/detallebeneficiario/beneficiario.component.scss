@@ -1,3 +1,14 @@
-.dec {
-  text-decoration: none;
+
+.mat-tab-group.mat-background-primary > .mat-tab-header, .mat-tab-group.mat-background-primary > .mat-tab-link-container, .mat-tab-group.mat-background-primary > .mat-tab-header-pagination, .mat-tab-nav-bar.mat-background-primary > .mat-tab-header, .mat-tab-nav-bar.mat-background-primary > .mat-tab-link-container, .mat-tab-nav-bar.mat-background-primary > .mat-tab-header-pagination {
+  background-color: #5a5c69 !important;
+}
+
+
+.center-all {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+.text-2em {
+  font-size: 2em;
 }

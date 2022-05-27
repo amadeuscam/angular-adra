@@ -1,12 +1,18 @@
 <div class="container-fluid " id="featured-3">
-  <h2 class="pb-2 border-bottom">Añadir beneficiario</h2>
-  <form [formGroup]="myForm" (ngSubmit)="addBeneficiario()" class="needs-validation">
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+  <h2 class="pb-2 border-bottom">
+    <span *ngIf="edit_mode;else noedit">Modificar</span>
+    <ng-template #noedit>Añadir</ng-template>
+    beneficiario
 
-      <div class="form-floating  col-md-4">
-        <input type="text" class="form-control" formControlName="nombre_beneficiario" id="floatingInput"
-               [ngClass]="{ 'is-invalid':  myForm.get('nombre_beneficiario').errors,'is-valid': !myForm.get('nombre_beneficiario').errors}">
+  </h2>
+  <form [formGroup]="myForm" *ngIf="myForm" (ngSubmit)="addBeneficiario()" class="needs-validation">
+    <div class="row   row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-xl-4">
+
+      <div class="form-group  col">
         <label for="floatingInput">Nombre del beneficiario</label>
+        <input type="text" class="form-control form-control-lg" formControlName="nombre_beneficiario" id="floatingInput"
+               [ngClass]="{ 'is-invalid':  myForm.get('nombre_beneficiario').errors,'is-valid': !myForm.get('nombre_beneficiario').errors}">
+
         <div *ngIf="myForm.get('nombre_beneficiario').errors" class="invalid-feedback">
           <div *ngIf="myForm.get('nombre_beneficiario').hasError('required')">El nombre es obligatorio</div>
         </div>
@@ -14,147 +20,170 @@
 
       </div>
 
-      <div class="form-floating col-md-4">
-        <input type="text" class="form-control" id="Dni" formControlName="dni">
+      <div class="form-group col">
         <label for="Dni">Dni</label>
-
+        <input type="text" class="form-control form-control-lg" id="Dni" formControlName="dni">
       </div>
 
-      <div class="form-floating  col-md-4">
-        <input type="text" class="form-control" id="documentos" formControlName="otros_documentos">
+      <div class="form-group  col">
         <label for="documentos">Otros documentos</label>
+        <input type="text" class="form-control form-control-lg" id="documentos" formControlName="otros_documentos">
       </div>
 
-      <div class="form-floating col-md-4">
-        <input type="date" class="form-control" id="nacimiento" formControlName="fecha_nacimiento"
-               [ngClass]="{ 'is-invalid':  myForm.get('fecha_nacimiento').errors,'is-fecha_nacimiento': !myForm.get('dni').errors}">
+      <div class="form-group col">
         <label for="nacimiento">Fecha nacimiento</label>
+        <input type="date" class="form-control form-control-lg" id="nacimiento" formControlName="fecha_nacimiento"
+               [ngClass]="{ 'is-invalid':  myForm.get('fecha_nacimiento').errors,'is-fecha_nacimiento': !myForm.get('dni').errors}">
       </div>
 
       <div class="form-floating col">
-        <input type="number" class="form-control" id="Numero" formControlName="numar_adra"
-               [ngClass]="{ 'is-invalid':  myForm.get('numar_adra').errors,'is-valid': !myForm.get('numar_adra').errors}">
         <label for="Numero">Numero adra</label>
+        <input type="number" class="form-control form-control-lg" id="Numero" formControlName="numar_adra"
+               [ngClass]="{ 'is-invalid':  myForm.get('numar_adra').errors,'is-valid': !myForm.get('numar_adra').errors}">
+
       </div>
 
-      <div class="form-floating col">
-        <input type="text" class="form-control" id="Nacionalidad" formControlName="nacionalidad"
-               [ngClass]="{ 'is-invalid':  myForm.get('nacionalidad').errors,'is-valid': !myForm.get('nacionalidad').errors}">
+      <div class="form-group col">
         <label for="Nacionalidad">Nacionalidad</label>
+        <input type="text" class="form-control form-control-lg" id="Nacionalidad" formControlName="nacionalidad"
+               [ngClass]="{ 'is-invalid':  myForm.get('nacionalidad').errors,'is-valid': !myForm.get('nacionalidad').errors}">
+
       </div>
 
-      <div class="form-floating col">
-        <input type="text" class="form-control" id="Domicilio" formControlName="domicilio"
-               [ngClass]="{ 'is-invalid':  myForm.get('domicilio').errors,'is-valid': !myForm.get('domicilio').errors}">
+      <div class="form-group col">
         <label for="Domicilio">Domicilio</label>
+        <input type="text" class="form-control form-control-lg" id="Domicilio" formControlName="domicilio"
+               [ngClass]="{ 'is-invalid':  myForm.get('domicilio').errors,'is-valid': !myForm.get('domicilio').errors}">
+
       </div>
 
-      <div class="form-floating col">
-        <input type="text" class="form-control" id="Mensaje" formControlName="mensaje">
+      <div class="form-group col">
         <label for="Mensaje">Mensaje</label>
+        <input type="text" class="form-control form-control-lg" id="Mensaje" formControlName="mensaje">
+
       </div>
 
-      <div class="form-floating col">
-        <input type="text" class="form-control" id="Ciudad" formControlName="ciudad"
-               [ngClass]="{ 'is-invalid':  myForm.get('ciudad').errors,'is-valid': !myForm.get('ciudad').errors}">
+      <div class="form-group col">
         <label for="Ciudad">Ciudad</label>
+        <input type="text" class="form-control form-control-lg" id="Ciudad" formControlName="ciudad"
+               [ngClass]="{ 'is-invalid':  myForm.get('ciudad').errors,'is-valid': !myForm.get('ciudad').errors}">
+
       </div>
 
-      <div class="form-floating col-md-3">
-        <input type="number" class="form-control" id="Telefono" formControlName="telefono"
-               [ngClass]="{ 'is-invalid':  myForm.get('telefono').errors,'is-valid': !myForm.get('telefono').errors}">
+      <div class="form-group col">
         <label for="Telefono">Telefono</label>
+        <input type="number" class="form-control form-control-lg" id="Telefono" formControlName="telefono"
+               [ngClass]="{ 'is-invalid':  myForm.get('telefono').errors,'is-valid': !myForm.get('telefono').errors}">
+
       </div>
 
 
-      <div class="form-floating col-md-3">
-        <select class="form-select form-select mb-3 form-control" id="sexo" formControlName="sexo"
+      <div class="form-group col">
+        <label for="sexo">Sexo</label>
+        <select class="form-select form-select mb-3 form-control form-control-lg" id="sexo" formControlName="sexo"
                 [ngClass]="{ 'is-invalid':  myForm.get('sexo').errors,'is-valid': !myForm.get('sexo').errors}">
           <option value="m" selected>Mujer</option>
           <option value="h">Hombre</option>
         </select>
-        <label for="sexo">Sexo</label>
+
       </div>
 
 
-      <div class="form-floating col-md-3">
-        <select class="form-select form-select mb-3 form-control" id="Domingo" formControlName="categoria"
+      <div class="form-group col">
+        <label for="Domingo">Domingo</label>
+        <select class="form-select form-select mb-3 form-control form-control-lg" id="Domingo"
+                formControlName="categoria"
                 [ngClass]="{ 'is-invalid':  myForm.get('categoria').errors,'is-valid': !myForm.get('categoria').errors}">
           <option value="2" selected>2</option>
           <option value="4">4</option>
         </select>
-        <label for="Domingo">Domingo</label>
+
       </div>
 
-      <div class="form-floating col-md-3">
-        <input type="email" class="form-control" id="Email" formControlName="email">
-        <label for="Email">Email beneficiario</label>
+      <div class="custom-control form-control-lg custom-checkbox form-group col-12">
+        <input type="checkbox" class="custom-control-input   " id="papeles" formControlName="papeles">
+        <label class="custom-control-label" for="papeles">Tiene papeles</label>
       </div>
 
-
-      <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="papeles" formControlName="papeles">
-        <label class="form-check-label" for="papeles">Tiene papeles</label>
+      <div class="custom-control form-control-lg custom-checkbox  form-group col-12">
+        <input type="checkbox" class="custom-control-input" id="Discapacidad" formControlName="discapacidad">
+        <label class="custom-control-label" for="Discapacidad">Discapacidad</label>
       </div>
 
-      <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="Discapacidad" formControlName="discapacidad">
-        <label class="form-check-label" for="Discapacidad">Discapacidad</label>
-      </div>
-
-      <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="entregas" formControlName="covid">
-        <label class="form-check-label" for="entregas">Covid entregas</label>
+      <div class="custom-control form-control-lg custom-checkbox form-group col-12">
+        <input type="checkbox" class="custom-control-input" id="entregas" formControlName="covid">
+        <label class="custom-control-label" for="entregas">Covid entregas</label>
       </div>
 
 
-      <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="empadronamiento" formControlName="empadronamiento">
-        <label class="form-check-label" for="empadronamiento">Certificado de empadronamiento actualizado con fecha de
+      <div class="custom-control form-control-lg custom-checkbox form-group col">
+        <input type="checkbox" class="custom-control-input" id="empadronamiento" formControlName="empadronamiento">
+        <label class="custom-control-label" for="empadronamiento">Certificado de empadronamiento actualizado con fecha
+          de
           menos de tres meses</label>
       </div>
 
-      <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="Libro" formControlName="fotocopia_libro_familia">
-        <label for="Libro">Fotocopia del Libro de Familia</label>
+      <div class="custom-control form-control-lg custom-checkbox form-group col-12">
+        <input type="checkbox" class="custom-control-input" id="Libro" formControlName="fotocopia_libro_familia">
+        <label for="Libro" class="custom-control-label">Fotocopia del Libro de Familia</label>
       </div>
 
-      <div class="form-check  col">
-        <input type="checkbox" class="form-check-input" id="pasaporte" formControlName="fotocopia_documentacion">
-        <label for="pasaporte">Fotocopia del DNI/NIE o pasaporte de todos los miembros del núcleo familiar</label>
+      <div class="custom-control form-control-lg custom-checkbox form-group   col-12">
+        <input type="checkbox" class="custom-control-input" id="pasaporte" formControlName="fotocopia_documentacion">
+        <label for="pasaporte" class="custom-control-label">Fotocopia del DNI/NIE o pasaporte de todos los miembros del
+          núcleo familiar</label>
       </div>
 
-      <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="prestación" formControlName="fotocopia_prestacion">
-        <label for="prestación">Fotocopia de la documentación que acredite de prestación, pensión, paro, etc</label>
+      <div class="custom-control form-control-lg custom-checkbox form-group col">
+        <input type="checkbox" class="custom-control-input" id="prestación" formControlName="fotocopia_prestacion">
+        <label for="prestación" class="custom-control-label">Fotocopia de la documentación que acredite de prestación,
+          pensión, paro, etc</label>
       </div>
 
-      <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="nómina" formControlName="fotocopia_nomina">
-        <label for="nómina">Fotocopia de la nómina en caso de trabajar.</label>
+      <div class="custom-control form-control-lg custom-checkbox form-group col">
+        <input type="checkbox" class="custom-control-input" id="nómina" formControlName="fotocopia_nomina">
+        <label for="nómina" class="custom-control-label">Fotocopia de la nómina en caso de trabajar.</label>
       </div>
 
-      <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="certificado"
+      <div class="custom-control form-control-lg custom-checkbox form-group col">
+        <input type="checkbox" class="custom-control-input" id="certificado"
                formControlName="fotocopia_certificado_negativo">
-        <label for="certificado">En caso de no tener ingresos: certificado negativo de rentas, de la Agencia
+        <label for="certificado" class="custom-control-label">En caso de no tener ingresos: certificado negativo de
+          rentas, de la Agencia
           Tributaria.</label>
       </div>
 
-      <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="hipoteca" formControlName="fotocopia_recibo_propiedad">
-        <label for="hipoteca">Ultimo recibo alquiler o hipoteca de vivienda familiar en la que están
+      <div class="custom-control form-control-lg custom-checkbox form-group col">
+        <input type="checkbox" class="custom-control-input" id="hipoteca" formControlName="fotocopia_recibo_propiedad">
+        <label for="hipoteca" class="custom-control-label">Ultimo recibo alquiler o hipoteca de vivienda familiar en la
+          que están
           empadronados</label>
       </div>
 
-      <div class="form-check col">
-        <input type="checkbox" class="form-check-input" id="gastos" formControlName="fotocopia_recibo_gastos">
-        <label for="gastos">Recibo de gastos básicos: luz, agua, gas, calefacción, comunidad y comedor escolar.</label>
+      <div class="custom-control form-control-lg custom-checkbox form-group col">
+        <input type="checkbox" class="custom-control-input" id="gastos" formControlName="fotocopia_recibo_gastos">
+        <label for="gastos" class="custom-control-label">Recibo de gastos básicos: luz, agua, gas, calefacción,
+          comunidad y comedor escolar.</label>
       </div>
 
-      <div class="col-lg-12 d-grid">
-        <button type="submit" class="btn btn-success  btn-lg">Enviar</button>
+
+    </div>
+    <div class="col-lg-12 col-12">
+      <div class="row" *ngIf="edit_mode;else noedit">
+        <div class="col" >
+          <button (click)="cancel($event)" class="btn btn-dark  btn-lg btn-block"> Volver
+          </button>
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-success  btn-lg btn-block">Modificar
+          </button>
+        </div>
+
       </div>
+      <ng-template #noedit class="col">
+        <button type="submit" class="btn btn-success  btn-lg btn-block">{{edit_mode ? "Modificar" : "Enviar"}}
+        </button>
+      </ng-template>
 
     </div>
   </form>

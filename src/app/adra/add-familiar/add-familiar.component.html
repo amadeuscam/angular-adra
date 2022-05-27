@@ -1,0 +1,70 @@
+<div class="container-fluid  ">
+  <h2 class="pb-2 border-bottom">{{edit_mode ? "Modificar" : "Añadir"}} Familiar</h2>
+  <form [formGroup]="myForm">
+    <div class="row g-4   row-cols-1 row-cols-lg-3">
+
+      <div class="form-floating  col">
+        <label for="nombreapellido">Nombre apellidos</label>
+        <input type="text" class="form-control" formControlName="nombreapellido" id="nombreapellido"
+               [ngClass]="{ 'is-invalid':  myForm.get('nombreapellido').errors,'is-valid': !myForm.get('nombreapellido').errors}">
+
+      </div>
+
+      <div class="form-floating col">
+        <label for="parentesco">Parentesco</label>
+        <input type="text" class="form-control" id="parentesco" formControlName="parentesco"
+               [ngClass]="{ 'is-invalid':  myForm.get('parentesco').errors,'is-valid': !myForm.get('parentesco').errors}">
+
+      </div>
+
+      <div class="form-floating  col">
+        <label for="sexo">Sexo</label>
+        <select class="form-select form-select mb-3 form-control" id="sexo" formControlName="sexo"
+                [ngClass]="{ 'is-invalid':  myForm.get('sexo').errors,'is-valid': !myForm.get('sexo').errors}">
+          <option value="m" selected>Mujer</option>
+          <option value="h">Hombre</option>
+        </select>
+
+
+      </div>
+
+      <div class="form-floating col">
+        <label for="dni">Dni</label>
+        <input type="text" class="form-control" id="dni" formControlName="dni">
+
+      </div>
+
+      <div class="form-floating col">
+        <label for="otros_documentos">Otros documentos</label>
+        <input type="text" class="form-control" id="otros_documentos" formControlName="otros_documentos">
+      </div>
+
+      <div class="form-floating col">
+        <label for="fechanacimiento">Fecha nacimiento</label>
+        <input type="date" class="form-control" id="fechanacimiento" formControlName="fechanacimiento"
+               [ngClass]="{ 'is-invalid':  myForm.get('fechanacimiento').errors,'is-valid': !myForm.get('fechanacimiento').errors}">
+
+      </div>
+
+
+      <div class="col-lg-12 mt-4">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 ">
+            <button class="btn btn-dark  btn-block btn-lg" [routerLink]="['/detail-beneficiario/' + ben_id]">Volver
+            </button>
+          </div>
+          <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
+            <button class="btn btn-success  btn-block btn-lg  "
+                    (click)="addFamiliar()">{{edit_mode ? "Modificar" : "Enviar"}} </button>
+          </div>
+        </div>
+
+      </div>
+      <!--      <div class="signature-image" *ngIf="signatureImg">-->
+      <!--        <img src='{{ signatureImg }}'/>-->
+      <!--      </div>-->
+
+
+    </div>
+  </form>
+</div>
