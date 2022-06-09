@@ -1,0 +1,179 @@
+<div class="container-fluid  ">
+  <h2 class="pb-2 border-bottom">Añadir Alimentos</h2>
+  <form [formGroup]="myForm">
+    <div class="row g-4   row-cols-1 row-cols-lg-3">
+
+      <div class="form-floating  col">
+        <input type="number" class="form-control" formControlName="arroz_blanco" id="arroz_blanco"
+          [ngClass]="{ 'is-invalid':  myForm.get('arroz_blanco').errors,'is-valid': !myForm.get('arroz_blanco').errors}">
+        <label for="arroz_blanco">Arroz Blanco</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Alubia_Cocida" formControlName="alubia_cocida"
+          [ngClass]="{ 'is-invalid':  myForm.get('alubia_cocida').errors,'is-valid': !myForm.get('alubia_cocida').errors}">
+        <label for="Alubia_Cocida">Alubia Cocida</label>
+      </div>
+
+      <div class="form-floating  col">
+        <input type="number" class="form-control" id="Atún" formControlName="conserva_atun"
+          [ngClass]="{ 'is-invalid':  myForm.get('conserva_atun').errors,'is-valid': !myForm.get('conserva_atun').errors}">
+        <label for="Atún">Conserva De Atún</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Macarron" formControlName="pasta_macarron"
+          [ngClass]="{ 'is-invalid':  myForm.get('pasta_macarron').errors,'is-valid': !myForm.get('pasta_macarron').errors}">
+        <label for="Macarron">Pasta Alimenticia Tipo Macarron</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Conserva" formControlName="conserva_tomate_frito"
+          [ngClass]="{ 'is-invalid':  myForm.get('conserva_tomate_frito').errors,'is-valid': !myForm.get('conserva_tomate_frito').errors}">
+        <label for="Conserva">Tomate Frito En Conserva</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Galletas" formControlName="galletas"
+          [ngClass]="{ 'is-invalid':  myForm.get('galletas').errors,'is-valid': !myForm.get('galletas').errors}">
+        <label for="Galletas">Galletas</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Macedonia" formControlName="macedonia_verduras"
+          [ngClass]="{ 'is-invalid':  myForm.get('macedonia_verduras').errors,'is-valid': !myForm.get('macedonia_verduras').errors}">
+        <label for="Macedonia">Macedonia De Verduras En Conserva</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Fruta" formControlName="fruta_conserva"
+          [ngClass]="{ 'is-invalid':  myForm.get('fruta_conserva').errors,'is-valid': !myForm.get('fruta_conserva').errors}">
+        <label for="Fruta">Fruta En Conserva</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Cacao" formControlName="cacao"
+          [ngClass]="{ 'is-invalid':  myForm.get('cacao').errors,'is-valid': !myForm.get('cacao').errors}">
+        <label for="Cacao">Cacao Soluble</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Tarritos_Pollo" formControlName="tarritos_pollo"
+          [ngClass]="{ 'is-invalid':  myForm.get('tarritos_pollo').errors,'is-valid': !myForm.get('tarritos_pollo').errors}">
+        <label for="Tarritos_Pollo">Tarritos Infantiles Con Pollo</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Tarritos_Fruta" formControlName="tarritos_fruta"
+          [ngClass]="{ 'is-invalid':  myForm.get('tarritos_fruta').errors,'is-valid': !myForm.get('tarritos_fruta').errors}">
+        <label for="Tarritos_Fruta">Tarritos Infantiles De Fruta</label>
+      </div>
+
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="Leche" formControlName="leche"
+          [ngClass]="{ 'is-invalid':  myForm.get('leche').errors,'is-valid': !myForm.get('leche').errors}">
+        <label for="Leche">Leche Entera Uht</label>
+      </div> 
+      <div class="form-floating col">
+        <input type="number" class="form-control" id="aceite" formControlName="aceite"
+          [ngClass]="{ 'is-invalid':  myForm.get('aceite').errors,'is-valid': !myForm.get('aceite').errors}">
+        <label for="aceite">Aceite oliva</label>
+      </div>
+
+
+
+      <div style="width: 100%;" class="col-md-12 col-lg-12 col-xl-12">
+        <h2 class="col-12">Fechas de caducidades alimentos</h2>
+        <hr>
+      </div>
+
+
+
+      <div class="form-floating col">
+        <input type="date" class="form-control" id="arroz_blanco_cad" formControlName="arroz_blanco_cad"
+          [ngClass]="{ 'is-invalid':  myForm.get('arroz_blanco_cad').errors,'is-valid': !myForm.get('arroz_blanco_cad').errors}">
+        <label for="arroz_blanco_cad">Arroz blanco caducidad</label>
+      </div>
+      <div class="form-floating col">
+        <input type="date" class="form-control" id="alubia_cocida_cad" formControlName="alubia_cocida_cad"
+          [ngClass]="{ 'is-invalid':  myForm.get('alubia_cocida_cad').errors,'is-valid': !myForm.get('alubia_cocida_cad').errors}">
+        <label for="alubia_cocida_cad">Alubia cocida caducidad</label>
+      </div>
+      <div class="form-floating col">
+        <input type="date" class="form-control" id="conserva_atun_cad" formControlName="conserva_atun_cad"
+          [ngClass]="{ 'is-invalid':  myForm.get('conserva_atun_cad').errors,'is-valid': !myForm.get('conserva_atun_cad').errors}">
+        <label for="conserva_atun_cad">Conserva atun caducidad</label>
+      </div>
+      <div class="form-floating col">
+        <input type="date" class="form-control" id="pasta_macarron_cad" formControlName="pasta_macarron_cad"
+          [ngClass]="{ 'is-invalid':  myForm.get('pasta_macarron_cad').errors,'is-valid': !myForm.get('pasta_macarron_cad').errors}">
+        <label for="pasta_macarron_cad">Pasta macarron caducidad</label>
+      </div>
+      <div class="form-floating col">
+        <input type="date" class="form-control" id="conserva_tomate_frito_cad"
+          formControlName="conserva_tomate_frito_cad"
+          [ngClass]="{ 'is-invalid':  myForm.get('conserva_tomate_frito_cad').errors,'is-valid': !myForm.get('conserva_tomate_frito_cad').errors}">
+        <label for="conserva_tomate_frito_cad">Conserva tomate frito caducidad</label>
+      </div>
+      <div class="form-floating col">
+        <input type="date" class="form-control" id="galletas_cad" formControlName="galletas_cad"
+          [ngClass]="{ 'is-invalid':  myForm.get('galletas_cad').errors,'is-valid': !myForm.get('galletas_cad').errors}">
+        <label for="galletas_cad">Galletas caducidad</label>
+      </div>
+      <div class="form-floating col">
+        <input type="date" class="form-control" id="macedonia_verduras_cad" formControlName="macedonia_verduras_cad"
+          [ngClass]="{ 'is-invalid':  myForm.get('macedonia_verduras_cad').errors,'is-valid': !myForm.get('macedonia_verduras_cad').errors}">
+        <label for="macedonia_verduras_cad">Macedonia verduras caducidad</label>
+      </div>
+      <div class="form-floating col">
+        <input type="date" class="form-control" id="fruta_conserva_cad" formControlName="fruta_conserva_cad"
+          [ngClass]="{ 'is-invalid':  myForm.get('fruta_conserva_cad').errors,'is-valid': !myForm.get('fruta_conserva_cad').errors}">
+        <label for="fruta_conserva_cad">Fruta conserva caducidad</label>
+      </div>
+      <div class="form-floating col">
+        <input type="date" class="form-control" id="cacao_cad" formControlName="cacao_cad"
+          [ngClass]="{ 'is-invalid':  myForm.get('cacao_cad').errors,'is-valid': !myForm.get('cacao_cad').errors}">
+        <label for="cacao_cad">Cacao caducidad</label>
+      </div>
+      <div class="form-floating col">
+        <input type="date" class="form-control" id="tarritos_pollo_cad" formControlName="tarritos_pollo_cad"
+          [ngClass]="{ 'is-invalid':  myForm.get('tarritos_pollo_cad').errors,'is-valid': !myForm.get('tarritos_pollo_cad').errors}">
+        <label for="tarritos_pollo_cad">Tarritos pollo caducidad</label>
+      </div>
+      <div class="form-floating col">
+        <input type="date" class="form-control" id="tarritos_fruta_cad" formControlName="tarritos_fruta_cad"
+          [ngClass]="{ 'is-invalid':  myForm.get('tarritos_fruta_cad').errors,'is-valid': !myForm.get('tarritos_fruta_cad').errors}">
+        <label for="tarritos_fruta_cad">Tarritos fruta caducidad</label>
+      </div>
+      <div class="form-floating col">
+        <input type="date" class="form-control" id="leche_cad" formControlName="leche_cad"
+          [ngClass]="{ 'is-invalid':  myForm.get('leche_cad').errors,'is-valid': !myForm.get('leche_cad').errors}">
+        <label for="leche_cad">Leche caducidad</label>
+      </div> 
+      
+      <div class="form-floating col">
+        <input type="date" class="form-control" id="aceite_cad" formControlName="aceite_cad"
+          [ngClass]="{ 'is-invalid':  myForm.get('aceite_cad').errors,'is-valid': !myForm.get('aceite_cad').errors}">
+        <label for="aceite_cad">Aceite caducidad</label>
+      </div>
+
+
+      <div class="col-lg-12 mt-4">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 ">
+            <button class="btn btn-dark  btn-block btn-lg" [routerLink]="['/stock-alimentos/']">Volver</button>
+          </div>
+          <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
+            <button class="btn btn-success  btn-block btn-lg  " (click)="modificarAlimentos()">Enviar</button>
+          </div>
+        </div>
+
+      </div>
+      <!--      <div class="signature-image" *ngIf="signatureImg">-->
+      <!--        <img src='{{ signatureImg }}'/>-->
+      <!--      </div>-->
+
+
+    </div>
+  </form>
+</div>

@@ -1,11 +1,12 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Alimentos } from "../models/alimentos";
+import { Beneficiario } from "../models/beneficiario";
+import { Familiares } from "../models/familiares";
+import { StockAlimentos } from '../models/stockAlimentos';
 
-import {Observable} from 'rxjs';
-import {environment} from 'src/environments/environment';
-import {Beneficiario} from "../models/beneficiario";
-import {Alimentos} from "../models/alimentos";
-import {Familiares} from "../models/familiares";
 
 
 @Injectable({
@@ -72,40 +73,25 @@ export class AdraService {
   }
 
   public getHojaEntrega(ben_id: string): any {
-    // let headerOptions = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   // 'Accept': 'application/pdf',
-    //
-    //   'Accept': 'application/octet-stream', // for excel file
-    // });
-    // let requestOptions = {headers: headerOptions, responseType: 'blob' as 'blob'};
-    //
-    // const headers = new Headers({
-    //   'Content-Type': 'application/json',
-    //   responseType: 'blob'
-    // });
-
-    // return this.http.post<any>(this.benUrl + `hoja-entrega/${ben_id}`, requestOptions)
     return this.http.get(this.benUrl + `hoja-entrega/${ben_id}`, {responseType: 'blob'})
   }
 
   public getValoracionSocial(ben_id: string): any {
-    // let headerOptions = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   // 'Accept': 'application/pdf',
-    //
-    //   'Accept': 'application/octet-stream', // for excel file
-    // });
-    // let requestOptions = {headers: headerOptions, responseType: 'blob' as 'blob'};
-    //
-    // const headers = new Headers({
-    //   'Content-Type': 'application/json',
-    //   responseType: 'blob'
-    // });
-
-    // return this.http.post<any>(this.benUrl + `hoja-entrega/${ben_id}`, requestOptions)
     return this.http.get(this.benUrl + `valoracion-social/${ben_id}`, {responseType: 'blob'})
   }
+
+
+  public modificarAlimentosStock(alimentos: StockAlimentos, id: number): Observable<any> {
+    console.log(alimentos);
+    
+    return this.http.put<any>(this.benUrl + `stock-alimentos/${id}`, alimentos)
+  }
+
+  public  getAllStockAlimentos(id:number): Observable<any> {
+    return this.http.get<any>(this.benUrl + `stock-alimentos/${id}`)
+  }
+
+
 
 
 }

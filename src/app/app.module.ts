@@ -26,6 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignaturePadModule } from 'angular2-signaturepad';
 import {MatTabsModule} from '@angular/material/tabs';
 import { AddFamiliarComponent } from './adra/add-familiar/add-familiar.component';
+import { StockAlimentosComponent } from './adra/stock-alimentos/stock-alimentos.component';
+import { StockFormComponent } from './adra/stock-form/stock-form.component';
 registerLocaleData(es);
 
 @NgModule({
@@ -44,6 +46,8 @@ registerLocaleData(es);
     AddBeneficiariosComponent,
     AddAlimentosComponent,
     AddFamiliarComponent,
+    StockAlimentosComponent,
+    StockFormComponent,
 
 
   ],

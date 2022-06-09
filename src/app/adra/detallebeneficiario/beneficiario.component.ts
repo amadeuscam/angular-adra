@@ -92,16 +92,16 @@ export class BeneficiarioComponent implements OnInit {
     this.adraService.getValoracionSocial(ben_id).subscribe(
       (data: any) => {
         console.log(data)
-        // let blob = new Blob([data], {
-        //   type: 'application/pdf' // must match the Accept type
-        //   // type: 'application/octet-stream' // for excel
-        // });
-        // var link = document.createElement('a');
-        // link.href = window.URL.createObjectURL(blob);
-        // link.download = `${this.ben_info['numeroadra']}.pdf`;
-        // link.target = '_blank';
-        // link.click();
-        // window.URL.revokeObjectURL(link.href);
+        let blob = new Blob([data], {
+          // type: 'application/pdf' // must match the Accept type
+          type: 'application/octet-stream' // for excel
+        });
+        var link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = `${this.ben_info['numeroadra']}.docx`;
+        link.target = '_blank';
+        link.click();
+        window.URL.revokeObjectURL(link.href);
 
       },
       // err => {
