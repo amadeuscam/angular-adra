@@ -28,6 +28,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { AddFamiliarComponent } from './adra/add-familiar/add-familiar.component';
 import { StockAlimentosComponent } from './adra/stock-alimentos/stock-alimentos.component';
 import { StockFormComponent } from './adra/stock-form/stock-form.component';
+import { StatisticsComponent } from './adra/statistics/statistics.component';
 registerLocaleData(es);
 
 @NgModule({
@@ -48,6 +49,7 @@ registerLocaleData(es);
     AddFamiliarComponent,
     StockAlimentosComponent,
     StockFormComponent,
+    StatisticsComponent,
 
 
   ],

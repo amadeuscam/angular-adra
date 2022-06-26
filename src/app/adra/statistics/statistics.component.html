@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="card p-3">
+    
+    <table class="table">
+      <thead class="thead-dark">
+        <tr class="text-center">
+          <th scope="col">Genero</th>
+          <th scope="col">0 a 2</th>
+          <th scope="col">3 a 15</th>
+          <th scope="col">16-64</th>
+          <th scope="col">+ de 65</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center">
+          <td>Hombres</td>
+          <td>{{statisticas_benefiricarios['total_02_hombres']}}</td>
+          <td>{{statisticas_benefiricarios['total_3_15_hombres']}}</td>
+          <td>{{statisticas_benefiricarios['total_16_64_hombres']}}</td>
+          <td>{{statisticas_benefiricarios['total_gt_65_hombres']}}</td>
+          <td>{{statisticas_benefiricarios['total_hombres']}}</td>
+        </tr>
+        <tr class="text-center">
+          <td>Mujeres</td>
+          <td>{{statisticas_benefiricarios['total_02_mujeres']}}</td>
+          <td>{{statisticas_benefiricarios['total_3_15_mujeres']}}</td>
+          <td>{{statisticas_benefiricarios['total_16_64_mujeres']}}</td>
+          <td>{{statisticas_benefiricarios['total_gt_65_mujeres']}}</td>
+          <td>{{statisticas_benefiricarios['total_mujeres']}}</td>
+        </tr>
+
+        <tr class="text-center">
+          <th scope="row">Total</th>
+          <td>{{statisticas_benefiricarios['total_02_hombres_mujeres']}}</td>
+          <td>{{statisticas_benefiricarios['total_3_15_hombres_mujeres']}}</td>
+          <td>{{statisticas_benefiricarios['total_16_64_hombres_mujeres']}}</td>
+          <td>{{statisticas_benefiricarios['total_gt_65_hombres_mujeres']}}</td>
+          <td>{{statisticas_benefiricarios['total_hombres_mujeres']}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="col-md-4 mt-5">
+        <table class="table ">
+          <thead class="thead-dark ">
+            <tr class="text-center">
+              <th scope="col">Beneficiarios</th>
+              <th scope="col">Familiares</th>
+              <th scope="col">Descapacitados</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center">
+              <td>{{statisticas_benefiricarios['beneficiarios']}}</td>
+              <td>{{statisticas_benefiricarios['familiars']}}</td>
+              <td>{{statisticas_benefiricarios['discapacidad']}}</td>
+
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-8 center-all">
+        <button class="btn btn-success" style="justify-content: left;" (click)="generateExcelBeneficarios($event)">Exportar beneficiarios</button>
+      </div>
+    </div>
+  </div>
+
+</div>

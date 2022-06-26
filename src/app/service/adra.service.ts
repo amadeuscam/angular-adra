@@ -73,22 +73,30 @@ export class AdraService {
   }
 
   public getHojaEntrega(ben_id: string): any {
-    return this.http.get(this.benUrl + `hoja-entrega/${ben_id}`, {responseType: 'blob'})
+    return this.http.get(this.benUrl + `hoja-entrega/${ben_id}`, { responseType: 'blob' })
   }
 
   public getValoracionSocial(ben_id: string): any {
-    return this.http.get(this.benUrl + `valoracion-social/${ben_id}`, {responseType: 'blob'})
+    return this.http.get(this.benUrl + `valoracion-social/${ben_id}`, { responseType: 'blob' })
   }
 
 
   public modificarAlimentosStock(alimentos: StockAlimentos, id: number): Observable<any> {
     console.log(alimentos);
-    
+
     return this.http.put<any>(this.benUrl + `stock-alimentos/${id}`, alimentos)
   }
 
-  public  getAllStockAlimentos(id:number): Observable<any> {
+  public getAllStockAlimentos(id: number): Observable<any> {
     return this.http.get<any>(this.benUrl + `stock-alimentos/${id}`)
+  }
+
+  public getAllBeneficiarioEstatisticas(): Observable<any> {
+    return this.http.get<any>(this.benUrl + `beneficiarios/estatisticas`)
+  }
+
+  public getBeneficiariosExcel(): any {
+    return this.http.get(this.benUrl + `beneficarios-excel`, { responseType: 'blob' })
   }
 
 

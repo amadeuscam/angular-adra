@@ -5,6 +5,7 @@ import { AddBeneficiariosComponent } from './adra/add-beneficiarios/add-benefici
 import { AddFamiliarComponent } from "./adra/add-familiar/add-familiar.component";
 import { BeneficiarioComponent } from './adra/detallebeneficiario/beneficiario.component';
 import { BeneficiariosComponent } from './adra/listBeneficiarios/beneficiarios.component';
+import { StatisticsComponent } from './adra/statistics/statistics.component';
 import { StockAlimentosComponent } from './adra/stock-alimentos/stock-alimentos.component';
 import { StockFormComponent } from './adra/stock-form/stock-form.component';
 import { LoginComponent } from './auth/login.component';
@@ -94,6 +95,14 @@ const routes: Routes = [
       {
         path: 'stock-alimentos-form/:alm_id',
         component: StockFormComponent,
+        canActivate: [guard],
+        data: {
+          expectedRol: ["admin"]
+        }
+      },
+      {
+        path: 'estatisticas',
+        component: StatisticsComponent,
         canActivate: [guard],
         data: {
           expectedRol: ["admin"]
